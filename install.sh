@@ -71,7 +71,7 @@ export NVM_DIR="$HOME/.nvm"
 nvm install --lts
 brew install yarn --without-node
 
-# Inform about manual installs
-echo Manually install the following:
+# Inform about apps needing manual installs
+echo -e "\e[1;32mManually install the following:\e[0m"
 echo brew cask install virtualbox
 echo brew cask install virtualbox-extension-pack
