@@ -27,8 +27,10 @@ mas install 1262957439 # Textual 7
 mas install 803453959 # Slack
 
 # Install Casks
+brew cask install homebrew/cask-drivers/logitech-options
 brew cask install google-chrome
 brew cask install firefox
+brew cask install steam
 brew cask install skype
 brew cask install gitter
 brew casl install spotify
@@ -44,6 +46,8 @@ brew cask install vagrant-manager
 brew cask install vmware-fusion
 brew cask install vagrant-vmware-utility
 brew cask install parallels
+brew cask install parallels-toolbox
+brew cask install adobe-creative-cloud
 
 # Install Vagrant plugins
 vagrant plugin install vagrant-reload
@@ -75,3 +79,7 @@ brew install yarn --without-node
 echo -e "\e[1;32mManually install the following:\e[0m"
 echo brew cask install virtualbox
 echo brew cask install virtualbox-extension-pack
+
+# Open folders with additional manual installers
+open /usr/local/Caskroom/parallels-toolbox
+open /usr/local/Caskroom/adobe-creative-cloud
