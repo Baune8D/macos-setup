@@ -30,11 +30,13 @@ mas install 803453959 # Slack
 brew cask install homebrew/cask-drivers/logitech-options
 brew cask install google-chrome
 brew cask install firefox
+brew cask install sabnzbd
 brew cask install steam
 brew cask install dropbox
 brew cask install skype
 brew cask install gitter
-brew casl install spotify
+brew cask install spotify
+brew cask install vnc-viewer
 brew cask install github
 brew cask install forklift
 brew cask install iterm2
@@ -79,8 +81,9 @@ export NVM_DIR="$HOME/.nvm"
 nvm install --lts
 brew install yarn --without-node
 
-# Inform about apps needing manual installs
-echo -e "\e[1;32mManually install the following:\e[0m"
+# Install VirtualBox and inform of manual steps
+brew cask install virtualbox
+echo -e "\e[1;32mAllow extension and manually run the following:\e[0m"
 echo brew cask install virtualbox
 echo brew cask install virtualbox-extension-pack
 
