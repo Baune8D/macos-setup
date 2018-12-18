@@ -43,9 +43,11 @@ brew cask install iterm2
 brew cask install java
 brew cask install charles
 brew cask install mysqlworkbench
+brew cask install azure-data-studio
 brew cask install dotnet-sdk
 brew cask install visual-studio-code
 brew cask install visual-studio
+brew cask install rider
 brew cask install vagrant
 brew cask install vagrant-manager
 brew cask install vmware-fusion
@@ -54,6 +56,8 @@ brew cask install parallels
 brew cask install parallels-toolbox
 brew cask install adobe-creative-cloud
 brew cask install paragon-ntfs
+brew cask install docker
+brew cask install kitematic
 
 # Install Vagrant plugins
 vagrant plugin install vagrant-reload
@@ -81,9 +85,10 @@ export NVM_DIR="$HOME/.nvm"
 nvm install --lts
 brew install yarn --without-node
 
-# Install VirtualBox and inform of manual steps
+# Install VirtualBox and inform about manual steps
 brew cask install virtualbox
-echo -e "\e[1;32mAllow extension and manually run the following:\e[0m"
+echo -e "\e[1;32mMake sure to allow the VirtualBox extension before proceeding!\e[0m"
+echo -e "\e[1;32mThen manually run the following commands:\e[0m"
 echo brew cask install virtualbox
 echo brew cask install virtualbox-extension-pack
 
