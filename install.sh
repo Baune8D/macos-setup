@@ -42,8 +42,10 @@ brew cask install forklift
 brew cask install iterm2
 brew cask install java
 brew cask install charles
+brew cask install postman
 brew cask install mysqlworkbench
 brew cask install azure-data-studio
+brew cask install mono-mdk
 brew cask install dotnet-sdk
 brew cask install visual-studio-code
 brew cask install visual-studio
