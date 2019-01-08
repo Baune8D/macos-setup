@@ -13,6 +13,7 @@ brew install zsh-syntax-highlighting
 echo source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh >> ~/.zshrc
 
 # Tap into additional Homebrew channels
+brew tap homebrew/cask-fonts
 brew tap caskroom/cask
 
 # Install Homebrew apps
@@ -88,6 +89,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 nvm install --lts
 brew install yarn --without-node
+
+# Install spacemacs
+brew tap d12frosted/emacs-plus
+brew install emacs-plus
+ln -s /usr/local/Cellar/emacs-plus/*/Emacs.app/ /Applications/
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+brew cask install font-source-code-pro
 
 # Install VirtualBox and inform about manual steps
 brew cask install virtualbox
