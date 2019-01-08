@@ -18,6 +18,8 @@ brew tap caskroom/cask
 # Install Homebrew apps
 brew install git
 brew install mas
+brew install neovim
+brew install tmux
 
 # Install App Store apps
 mas install 497799835 # XCode
