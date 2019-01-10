@@ -90,6 +90,11 @@ export NVM_DIR="$HOME/.nvm"
 nvm install --lts
 brew install yarn --without-node
 
+# Install Ruby Version Manager
+\curl -sSL https://get.rvm.io | bash -s stable --ruby
+source ~/.rvm/scripts/rvm
+rvm use --latest
+
 # Install spacemacs
 brew tap d12frosted/emacs-plus
 brew install emacs-plus
