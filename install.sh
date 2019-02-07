@@ -31,6 +31,7 @@ mas install 803453959 # Slack
 
 # Install Casks
 brew cask install homebrew/cask-drivers/logitech-options
+brew cask install ngrok
 brew cask install google-chrome
 brew cask install firefox
 brew cask install sabnzbd
