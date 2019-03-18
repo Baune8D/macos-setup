@@ -102,7 +102,7 @@ export NVM_DIR="$HOME/.nvm"
 git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
 echo source ~/.zsh-nvm/zsh-nvm.plugin.zsh >> ~/.zshrc
 nvm install --lts
-brew install yarn --without-node
+brew install yarn --ignore-dependencies
 
 # Install rbenv and update Ruby
 brew install rbenv
