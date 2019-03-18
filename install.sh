@@ -15,9 +15,12 @@ echo source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Tap into additional Homebrew channels
 brew tap homebrew/cask-fonts
 
-# Install App Store apps
+# Install XCode
 brew install mas
-mas install 497799835 # XCode
+mas install 497799835
+xcodebuild -license accept
+
+# Install App Store apps
 mas install 425424353 # The Unarchiver
 mas install 1295203466 # Microsoft Remote Desktop 10
 mas install 1262957439 # Textual 7
