@@ -64,6 +64,8 @@ brew cask install adobe-creative-cloud
 brew cask install paragon-ntfs
 brew cask install docker
 brew cask install kitematic
+brew cask install imageoptim
+brew cask install powershell
 
 # Install Vagrant plugins
 vagrant plugin install vagrant-reload
