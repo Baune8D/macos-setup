@@ -19,7 +19,7 @@ brew tap homebrew/cask-fonts
 # Install XCode
 brew install mas
 mas install 497799835
-xcodebuild -license accept
+sudo xcodebuild -license accept
 
 # Install App Store apps
 mas install 425424353 # The Unarchiver
