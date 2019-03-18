@@ -34,7 +34,7 @@ brew install tmux
 brew install dos2unix
 
 # Install Casks (drivers)
-brew cask install logitech-options
+brew cask install homebrew/cask-drivers/logitech-options
 brew cask install paragon-ntfs
 
 # Install Casks (virtualization)
