@@ -5,7 +5,6 @@
 
 # Setup shell (oh-my-zsh)
 brew install zsh zsh-completions
-chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sed 's:env zsh -l::g' | sed 's:chsh -s .*$::g')"
 echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.zshrc
 brew install zsh-autosuggestions
@@ -15,20 +14,19 @@ echo source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Tap into additional Homebrew channels
 brew tap homebrew/cask-fonts
-brew tap caskroom/cask
-
-# Install Homebrew apps
-brew install git
-brew install mas
-brew install neovim
-brew install tmux
 
 # Install App Store apps
+brew install mas
 mas install 497799835 # XCode
 mas install 425424353 # The Unarchiver
 mas install 1295203466 # Microsoft Remote Desktop 10
 mas install 1262957439 # Textual 7
 mas install 803453959 # Slack
+
+# Install Homebrew apps
+brew install git
+brew install neovim
+brew install tmux
 
 # Install Casks
 brew cask install homebrew/cask-drivers/logitech-options
