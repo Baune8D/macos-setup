@@ -88,11 +88,12 @@ code --install-extension esbenp.prettier-vscode
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension shinnn.stylelint
 
-# Install Node Version Manager, Node.js and Yarn
+# Install Node Version Manager, zsh-nvm, Node.js and Yarn
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
+echo source ~/.zsh-nvm/zsh-nvm.plugin.zsh ~/.zshrc
 nvm install --lts
 brew install yarn --without-node
 
