@@ -100,7 +100,7 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | b
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
-echo source ~/.zsh-nvm/zsh-nvm.plugin.zsh ~/.zshrc
+echo source ~/.zsh-nvm/zsh-nvm.plugin.zsh >> ~/.zshrc
 nvm install --lts
 brew install yarn --without-node
 
