@@ -33,22 +33,25 @@ brew install neovim
 brew install tmux
 brew install dos2unix
 
-# Install Casks
+# Install Casks (drivers)
 brew cask install logitech-options
-brew cask install ngrok
-brew cask install google-chrome
-brew cask install firefox
-brew cask install sabnzbd
-brew cask install steam
-brew cask install dropbox
-brew cask install skype
-brew cask install gitter
-brew cask install spotify
+brew cask install paragon-ntfs
+
+# Install Casks (virtualization)
+brew cask install vagrant
+brew cask install vagrant-manager
+brew cask install vmware-fusion
+brew cask install vagrant-vmware-utility
+brew cask install parallels
+brew cask install docker
+brew cask install kitematic
+
+# Install Casks (development)
 brew cask install vnc-viewer
-brew cask install github
 brew cask install forklift
-brew cask install iterm2
 brew cask install java
+brew cask install ngrok
+brew cask install github
 brew cask install charles
 brew cask install postman
 brew cask install mysqlworkbench
@@ -58,18 +61,21 @@ brew cask install dotnet-sdk
 brew cask install visual-studio-code
 brew cask install visual-studio
 brew cask install rider
-brew cask install vagrant
-brew cask install vagrant-manager
-brew cask install vmware-fusion
-brew cask install vagrant-vmware-utility
-brew cask install parallels
+brew cask install powershell
+
+# Install Casks (other)
+brew cask install google-chrome
+brew cask install firefox
+brew cask install sabnzbd
+brew cask install steam
+brew cask install dropbox
+brew cask install skype
+brew cask install gitter
+brew cask install spotify
+brew cask install iterm2
 brew cask install parallels-toolbox
 brew cask install adobe-creative-cloud
-brew cask install paragon-ntfs
-brew cask install docker
-brew cask install kitematic
 brew cask install imageoptim
-brew cask install powershell
 
 # Install Vagrant plugins
 vagrant plugin install vagrant-reload
