@@ -7,6 +7,7 @@
 brew install zsh zsh-completions
 chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.zshrc
 brew install zsh-autosuggestions
 echo source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh >> ~/.zshrc
 brew install zsh-syntax-highlighting
