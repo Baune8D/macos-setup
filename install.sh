@@ -31,6 +31,7 @@ mas install 803453959 # Slack
 brew install git
 brew install neovim
 brew install tmux
+brew install dos2unix
 
 # Install Casks
 brew cask install logitech-options
