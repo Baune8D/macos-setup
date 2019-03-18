@@ -6,7 +6,7 @@
 # Setup shell (oh-my-zsh)
 brew install zsh zsh-completions
 chsh -s $(which zsh)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sed 's:env zsh -l::g' | sed 's:chsh -s .*$::g')"
 echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.zshrc
 brew install zsh-autosuggestions
 echo source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh >> ~/.zshrc
