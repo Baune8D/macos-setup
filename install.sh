@@ -101,8 +101,9 @@ brew install yarn --without-node
 brew install rbenv
 echo 'eval "$(rbenv init -)"' | tee -a ~/.bash_profile ~/.zshrc > /dev/null
 rbenv init -
-rbenv install $(rbenv install -l | grep -v - | tail -1)
-rbenv global $(rbenv install -l | grep -v - | tail -1)
+LATEST_RUBY_VERSION="$(rbenv install -l | grep -v - | tail -1 | tr -d '[[:space:]]')"
+rbenv install $LATEST_RUBY_VERSION
+rbenv global $LATEST_RUBY_VERSION
 
 # Install Ruby Gems
 gem install ultrahook
