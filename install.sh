@@ -21,7 +21,7 @@ brew install mas
 mas install 497799835
 sudo xcodebuild -license accept
 
-# Install App Store apps
+# Install other App Store apps
 mas install 425424353 # The Unarchiver
 mas install 1295203466 # Microsoft Remote Desktop 10
 mas install 1262957439 # Textual 7
