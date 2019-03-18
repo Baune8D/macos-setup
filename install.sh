@@ -46,24 +46,26 @@ brew cask install parallels
 brew cask install docker
 brew cask install kitematic
 
-# Install Casks (development)
-brew cask install vnc-viewer
-brew cask install forklift
+# Install Casks (languages)
+brew cask install powershell
 brew cask install java
+brew cask install mono-mdk
+brew cask install dotnet-sdk
+
+# Install Casks (development)
 brew cask install ngrok
 brew cask install github
 brew cask install charles
 brew cask install postman
 brew cask install mysqlworkbench
 brew cask install azure-data-studio
-brew cask install mono-mdk
-brew cask install dotnet-sdk
 brew cask install visual-studio-code
 brew cask install visual-studio
 brew cask install rider
-brew cask install powershell
 
 # Install Casks (other)
+brew cask install vnc-viewer
+brew cask install forklift
 brew cask install google-chrome
 brew cask install firefox
 brew cask install sabnzbd
@@ -98,7 +100,7 @@ code --install-extension shinnn.stylelint
 # Install Node Version Manager, zsh-nvm, Node.js and Yarn
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
 echo source ~/.zsh-nvm/zsh-nvm.plugin.zsh >> ~/.zshrc
 nvm install --lts
