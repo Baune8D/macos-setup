@@ -120,8 +120,8 @@ brew cask install font-source-code-pro
 
 # Install VirtualBox and inform about manual steps
 brew cask install virtualbox
-echo -e "\e[1;32mMake sure to allow the VirtualBox extension before proceeding!\e[0m"
-echo -e "\e[1;32mThen manually run the following commands:\e[0m"
+echo -e "\x1b[1;32mMake sure to allow the VirtualBox extension!\x1b[0m"
+echo -e "\x1b[1;32mThen manually run the following commands:\x1b[0m"
 echo brew cask install virtualbox
 echo brew cask install virtualbox-extension-pack
 
