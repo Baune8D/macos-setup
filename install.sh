@@ -7,7 +7,6 @@
 brew install zsh zsh-completions
 chsh -s /bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sed 's:env zsh -l::g' | sed 's:chsh -s .*$::g')"
-echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.zshrc
 brew install zsh-autosuggestions
 echo source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh >> ~/.zshrc
 brew install zsh-syntax-highlighting
@@ -84,11 +83,6 @@ vagrant plugin install vagrant-reload
 vagrant plugin install vagrant-hostmanager
 vagrant plugin install vagrant-parallels
 vagrant plugin install vagrant-vmware-desktop
-
-# Fix Vagrant VMware Utility permissions
-sudo find /opt/vagrant-vmware-desktop -type d -exec chmod 755 {} \;
-sudo find /opt/vagrant-vmware-desktop -type f -exec chmod 644 {} \;
-sudo chmod -R 755 /opt/vagrant-vmware-desktop/bin
 
 # Install Visual Studio Code extensions
 code --install-extension ms-vscode.csharp
