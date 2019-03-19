@@ -12,6 +12,17 @@ echo source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh >> ~/.z
 brew install zsh-syntax-highlighting
 echo source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh >> ~/.zshrc
 
+# Install rbenv and update Ruby
+brew install rbenv
+echo 'eval "$(rbenv init -)"' | tee -a ~/.bash_profile ~/.zshrc > /dev/null
+rbenv init -
+LATEST_RUBY_VERSION="$(rbenv install -l | grep -v - | tail -1 | tr -d '[[:space:]]')"
+rbenv install $LATEST_RUBY_VERSION
+rbenv global $LATEST_RUBY_VERSION
+
+# Install Ruby Gems
+gem install ultrahook
+
 # Tap into additional Homebrew channels
 brew tap homebrew/cask-fonts
 
@@ -99,17 +110,6 @@ git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
 echo source ~/.zsh-nvm/zsh-nvm.plugin.zsh >> ~/.zshrc
 nvm install --lts
 brew install yarn --ignore-dependencies
-
-# Install rbenv and update Ruby
-brew install rbenv
-echo 'eval "$(rbenv init -)"' | tee -a ~/.bash_profile ~/.zshrc > /dev/null
-rbenv init -
-LATEST_RUBY_VERSION="$(rbenv install -l | grep -v - | tail -1 | tr -d '[[:space:]]')"
-rbenv install $LATEST_RUBY_VERSION
-rbenv global $LATEST_RUBY_VERSION
-
-# Install Ruby Gems
-gem install ultrahook
 
 # Install spacemacs
 brew tap d12frosted/emacs-plus
