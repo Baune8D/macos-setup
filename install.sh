@@ -3,6 +3,9 @@
 # Install Homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+# Tap into additional Homebrew channels
+brew tap homebrew/cask-fonts
+
 # Setup shell (oh-my-zsh)
 brew install zsh zsh-completions
 chsh -s /bin/zsh
@@ -22,9 +25,6 @@ rbenv global $LATEST_RUBY_VERSION
 
 # Install Ruby Gems
 gem install ultrahook
-
-# Tap into additional Homebrew channels
-brew tap homebrew/cask-fonts
 
 # Install XCode
 brew install mas
@@ -47,6 +47,12 @@ brew install dos2unix
 brew cask install homebrew/cask-drivers/logitech-options
 brew cask install paragon-ntfs
 
+# Install Casks (languages)
+brew cask install java
+brew cask install powershell
+brew cask install mono-mdk
+brew cask install dotnet-sdk
+
 # Install Casks (virtualization)
 brew cask install vagrant
 brew cask install vagrant-manager
@@ -55,12 +61,6 @@ brew cask install vagrant-vmware-utility
 brew cask install parallels
 brew cask install docker
 brew cask install kitematic
-
-# Install Casks (languages)
-brew cask install powershell
-brew cask install java
-brew cask install mono-mdk
-brew cask install dotnet-sdk
 
 # Install Casks (development)
 brew cask install ngrok
@@ -95,13 +95,6 @@ vagrant plugin install vagrant-hostmanager
 vagrant plugin install vagrant-parallels
 vagrant plugin install vagrant-vmware-desktop
 
-# Install Visual Studio Code extensions
-code --install-extension ms-vscode.csharp
-code --install-extension editorconfig.editorconfig
-code --install-extension esbenp.prettier-vscode
-code --install-extension dbaeumer.vscode-eslint
-code --install-extension shinnn.stylelint
-
 # Install Node Version Manager, zsh-nvm, Node.js and Yarn
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
@@ -111,7 +104,14 @@ echo source ~/.zsh-nvm/zsh-nvm.plugin.zsh >> ~/.zshrc
 nvm install --lts
 brew install yarn --ignore-dependencies
 
-# Install spacemacs
+# Install Visual Studio Code extensions
+code --install-extension ms-vscode.csharp
+code --install-extension editorconfig.editorconfig
+code --install-extension esbenp.prettier-vscode
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension shinnn.stylelint
+
+# Install Spacemacs
 brew tap d12frosted/emacs-plus
 brew install emacs-plus
 ln -s /usr/local/Cellar/emacs-plus/*/Emacs.app/ /Applications/
