@@ -58,9 +58,10 @@ brew cask install vagrant
 brew cask install vagrant-manager
 brew cask install vmware-fusion
 brew cask install vagrant-vmware-utility
-brew cask install parallels
 brew cask install docker
 brew cask install kitematic
+brew cask install parallels
+sudo chown -R $(whoami) /usr/local/share/man/man8 # tmp fix after parallels
 
 # Install Casks (development)
 brew cask install ngrok
