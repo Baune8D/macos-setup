@@ -18,7 +18,7 @@ echo source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Install rbenv and update Ruby
 brew install rbenv
 echo 'eval "$(rbenv init -)"' | tee -a ~/.bash_profile ~/.zshrc > /dev/null
-rbenv init -
+eval "$(rbenv init -)"
 LATEST_RUBY_VERSION="$(rbenv install -l | grep -v - | tail -1 | tr -d '[[:space:]]')"
 rbenv install $LATEST_RUBY_VERSION
 rbenv global $LATEST_RUBY_VERSION
