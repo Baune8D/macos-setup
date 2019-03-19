@@ -126,6 +126,6 @@ echo brew cask install virtualbox
 echo brew cask install virtualbox-extension-pack
 
 # Open folders with additional manual installers
+open /usr/local/Caskroom/paragon-ntfs
 open /usr/local/Caskroom/parallels-toolbox
 open /usr/local/Caskroom/adobe-creative-cloud
-open /usr/local/Caskroom/paragon-ntfs
