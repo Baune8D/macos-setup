@@ -33,12 +33,15 @@ sudo xcodebuild -license accept
 
 # Install other App Store apps
 mas install 425424353 # The Unarchiver
-mas install 1295203466 # Microsoft Remote Desktop 10
-mas install 1262957439 # Textual 7
+mas install 1295203466 # Microsoft Remote Desktop
+mas install 1262957439 # Textual IRC Client
 mas install 803453959 # Slack
+mas install 1063631769 # Medis - GUI for Redis
 
 # Install Homebrew apps
 brew install git
+brew install cmake
+brew install gettext
 brew install neovim
 brew install tmux
 brew install dos2unix
@@ -61,9 +64,9 @@ brew cask install vagrant-vmware-utility
 brew cask install docker
 brew cask install kitematic
 brew cask install parallels
-sudo chown -R $(whoami) /usr/local/share/man/man8 # tmp fix after parallels
 
 # Install Casks (development)
+brew cask install redis
 brew cask install ngrok
 brew cask install github
 brew cask install charles
@@ -86,9 +89,13 @@ brew cask install skype
 brew cask install gitter
 brew cask install spotify
 brew cask install iterm2
-brew cask install parallels-toolbox
 brew cask install adobe-creative-cloud
 brew cask install imageoptim
+brew cask install balenaetcher
+brew cask install discord
+brew cask install sdformatter
+brew cask install teamviewer
+brew cask install vlc
 
 # Install Vagrant plugins
 vagrant plugin install vagrant-reload
@@ -128,5 +135,4 @@ echo brew cask install virtualbox-extension-pack
 
 # Open folders with additional manual installers
 open /usr/local/Caskroom/paragon-ntfs
-open /usr/local/Caskroom/parallels-toolbox
 open /usr/local/Caskroom/adobe-creative-cloud
