@@ -1,15 +1,16 @@
 #!/bin/bash
 
 # Install Homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 # Tap into additional Homebrew channels
 brew tap homebrew/cask-fonts
 
 # Setup shell (oh-my-zsh)
 brew install zsh zsh-completions
-chsh -s /bin/zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sed 's:env zsh -l::g' | sed 's:chsh -s .*$::g')"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo chmod 755 /usr/local/share/zsh
+sudo chmod 755 /usr/local/share/zsh/site-functions
 brew install zsh-autosuggestions
 echo source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh >> ~/.zshrc
 brew install zsh-syntax-highlighting
@@ -22,6 +23,7 @@ eval "$(rbenv init -)"
 LATEST_RUBY_VERSION="$(rbenv install -l | grep -v - | tail -1 | tr -d '[[:space:]]')"
 rbenv install $LATEST_RUBY_VERSION
 rbenv global $LATEST_RUBY_VERSION
+exec $SHELL -l
 
 # Install Ruby Gems
 gem install ultrahook
