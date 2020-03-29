@@ -98,6 +98,9 @@ brew cask install discord
 brew cask install sdformatter
 brew cask install teamviewer
 brew cask install vlc
+brew cask install megasync
+brew cask install google-backup-and-sync
+brew cask install onecast
 
 # Install Vagrant plugins
 vagrant plugin install vagrant-reload
