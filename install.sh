@@ -101,6 +101,7 @@ brew cask install vlc
 brew cask install megasync
 brew cask install google-backup-and-sync
 brew cask install onecast
+brew cask install qfinder-pro
 
 # Install Vagrant plugins
 vagrant plugin install vagrant-reload
