@@ -10,11 +10,7 @@ brew install zsh
 exec $SHELL -l # Refresh shell to pick up new zsh version
 brew install mas
 
-# Tap into additional Homebrew channels
-brew tap homebrew/cask-fonts
-
 # Setup shell (oh-my-zsh)
-brew install zsh-completions
 compaudit | xargs chmod g-w,o-w # Fix insecure zsh folders by removing group write permission
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 brew install zsh-autosuggestions
@@ -33,6 +29,7 @@ rbenv global $LATEST_RUBY_VERSION
 exec $SHELL -l # Refresh shell to pick up new ruby version
 
 # Install Ruby Gems
+gem install bundler
 gem install ultrahook
 
 # Install App Store apps
@@ -50,12 +47,15 @@ brew install gettext
 brew install neovim
 brew install tmux
 
+# Install Java
+brew cask install openjdk
+sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk # Make OpenJDK visible to the system Java wrappers
+
 # Install Casks (drivers)
-brew cask install logitech-options
+brew cask install homebrew/cask-drivers/logitech-options
 brew cask install paragon-ntfs
 
 # Install Casks (languages)
-brew cask install java
 brew cask install powershell
 brew cask install mono-mdk
 brew cask install dotnet-sdk
@@ -67,6 +67,8 @@ brew cask install vmware-fusion
 brew cask install vagrant-vmware-utility
 brew cask install docker
 brew cask install parallels
+brew cask install virtualbox
+brew cask install virtualbox-extension-pack
 
 # Install Casks (development)
 brew cask install redis
@@ -101,7 +103,6 @@ brew cask install vlc
 brew cask install megasync
 brew cask install google-backup-and-sync
 brew cask install onecast
-brew cask install qfinder-pro
 
 # Install Vagrant plugins
 vagrant plugin install vagrant-reload
@@ -110,7 +111,7 @@ vagrant plugin install vagrant-parallels
 vagrant plugin install vagrant-vmware-desktop
 
 # Install Node Version Manager, zsh-nvm, Node.js and Yarn
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
@@ -127,20 +128,5 @@ code --install-extension esbenp.prettier-vscode
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension stylelint.vscode-stylelint
 
-# Install Spacemacs
-brew tap d12frosted/emacs-plus
-brew install emacs-plus
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-brew cask install font-source-code-pro
-ln -s /usr/local/Cellar/emacs-plus/*/Emacs.app/ /Applications/
-
-# Install VirtualBox and inform about manual steps
-brew cask install virtualbox
-echo -e "\x1b[1;32mMake sure to allow the VirtualBox extension now!\x1b[0m"
-echo -e "\x1b[1;32mThen manually run the following commands:\x1b[0m"
-echo brew cask install virtualbox
-echo brew cask install virtualbox-extension-pack
-
 # Open folders with additional manual installers
-open /usr/local/Caskroom/adobe-creative-cloud
 open /usr/local/Caskroom/paragon-ntfs
