@@ -122,6 +122,7 @@ brew cask install google-backup-and-sync
 brew cask install onecast
 brew cask install microsoft-teams
 brew cask install zoom
+brew cask install plex-media-player
 
 # Install Vagrant plugins
 vagrant plugin install vagrant-reload
