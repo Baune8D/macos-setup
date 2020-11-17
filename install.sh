@@ -40,13 +40,13 @@ mas install 1480068668 # Messenger
 mas install 1147396723 # WhatsApp
 mas install 1451685025 # WireGuard
 
-# Install Homebrew
+# Install Homebrew packages
 brew install cmake
 brew install gettext
 brew install neovim
 brew install tmux
 
-# Install Node Version Manager, zsh-nvm, Node.js and Yarn
+# Install zsh-nvm, nvm, Node.js LTS and Yarn
 git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
 echo source ~/.zsh-nvm/zsh-nvm.plugin.zsh >> ~/.zshrc
 source .zshrc # Reload zsh config
@@ -57,17 +57,17 @@ brew install yarn
 brew cask install openjdk
 sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk # Make OpenJDK visible to the system Java wrappers
 
-# Install Casks (drivers)
+# Install Casks (Drivers)
 brew cask install homebrew/cask-drivers/logitech-options
 brew cask install caldigit-thunderbolt-charging
 brew cask install paragon-ntfs
 
-# Install Casks (languages)
+# Install Casks (Frameworks)
 brew cask install powershell
 brew cask install mono-mdk
 brew cask install dotnet-sdk
 
-# Install Casks (virtualization)
+# Install Casks (Virtualization)
 brew cask install vagrant
 brew cask install vagrant-manager
 brew cask install vmware-fusion
@@ -77,7 +77,7 @@ brew cask install parallels
 brew cask install virtualbox
 brew cask install virtualbox-extension-pack
 
-# Install Casks (development)
+# Install Casks (Development)
 brew cask install redis
 brew cask install ngrok
 brew cask install github
@@ -88,7 +88,7 @@ brew cask install azure-data-studio
 brew cask install visual-studio-code
 brew cask install rider
 
-# Install Casks (other)
+# Install Casks
 brew cask install adobe-creative-cloud
 brew cask install vnc-viewer
 brew cask install forklift
@@ -129,9 +129,9 @@ code --install-extension ms-azuretools.vscode-docker
 code --install-extension ms-vscode-remote.remote-containers
 code --install-extension octref.vetur
 
-# Install Ruby Gems
+# Install Ruby gems
 gem install bundler
 gem install ultrahook
 
-# Open folders with additional manual installers
+# Open folders containing manual installers
 open /usr/local/Caskroom/paragon-ntfs
