@@ -8,9 +8,8 @@ brew install git
 exec $SHELL -l # Refresh shell to pick up new git version
 brew install zsh
 exec $SHELL -l # Refresh shell to pick up new zsh version
-brew install mas
 
-# Setup shell (oh-my-zsh)
+# Setup shell (Oh My Zsh)
 compaudit | xargs chmod g-w,o-w # Fix insecure zsh folders by removing group write permission
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 brew install zsh-autosuggestions
@@ -28,11 +27,8 @@ rbenv install $LATEST_RUBY_VERSION
 rbenv global $LATEST_RUBY_VERSION
 exec $SHELL -l # Refresh shell to pick up new ruby version
 
-# Install Ruby Gems
-gem install bundler
-gem install ultrahook
-
 # Install App Store apps
+brew install mas
 mas install 497799835 # Xcode
 sudo xcodebuild -license accept # Accept Xcode license
 mas install 425424353 # The Unarchiver
@@ -44,13 +40,20 @@ mas install 1480068668 # Messenger
 mas install 1147396723 # WhatsApp
 mas install 1451685025 # WireGuard
 
-# Install Homebrew apps
+# Install Homebrew
 brew install cmake
 brew install gettext
 brew install neovim
 brew install tmux
 
-# Install Java
+# Install Node Version Manager, zsh-nvm, Node.js and Yarn
+git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
+echo source ~/.zsh-nvm/zsh-nvm.plugin.zsh >> ~/.zshrc
+source .zshrc # Reload zsh config
+nvm install --lts
+brew install yarn
+
+# Install Java (OpenJDK)
 brew cask install openjdk
 sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk # Make OpenJDK visible to the system Java wrappers
 
@@ -116,17 +119,6 @@ vagrant plugin install vagrant-hostmanager
 vagrant plugin install vagrant-parallels
 vagrant plugin install vagrant-vmware-desktop
 
-# Install Node Version Manager, zsh-nvm, Node.js and Yarn
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
-echo source ~/.zsh-nvm/zsh-nvm.plugin.zsh >> ~/.zshrc
-source .zshrc # Reload zsh config
-nvm install --lts
-brew install yarn
-
 # Install Visual Studio Code extensions
 code --install-extension ms-dotnettools.csharp
 code --install-extension editorconfig.editorconfig
@@ -136,6 +128,10 @@ code --install-extension stylelint.vscode-stylelint
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension ms-vscode-remote.remote-containers
 code --install-extension octref.vetur
+
+# Install Ruby Gems
+gem install bundler
+gem install ultrahook
 
 # Open folders with additional manual installers
 open /usr/local/Caskroom/paragon-ntfs
