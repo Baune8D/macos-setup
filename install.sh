@@ -20,7 +20,7 @@ source .zshrc # Reload zsh config
 LATEST_RUBY_VERSION="$(rbenv install -l | grep -v - | tail -1 | tr -d '[[:space:]]')"
 rbenv install $LATEST_RUBY_VERSION
 rbenv global $LATEST_RUBY_VERSION
-exec $SHELL -l # Refresh shell to pick up new ruby version
+exec $SHELL -l # Refresh shell to pick up new Ruby version
 
 # Install zsh-nvm, nvm, Node.js LTS and Yarn
 git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
@@ -55,6 +55,12 @@ brew install gettext
 brew install neovim
 brew install tmux
 
+# Install PHP and Composer
+brew install php
+exec $SHELL -l # Refresh shell to pick up new PHP version
+brew install composer
+echo COMPOSER_MEMORY_LIMIT=-1 >> ~/.zshrc
+
 # Install Java (OpenJDK)
 brew cask install openjdk
 sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk # Make OpenJDK visible to the system Java wrappers
@@ -85,6 +91,7 @@ brew cask install ngrok
 brew cask install github
 brew cask install charles
 brew cask install postman
+brew cask install mamp
 brew cask install mysqlworkbench
 brew cask install azure-data-studio
 brew cask install visual-studio-code
