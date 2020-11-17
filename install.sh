@@ -39,7 +39,9 @@ mas install 425424353 # The Unarchiver
 mas install 1295203466 # Microsoft Remote Desktop
 mas install 1262957439 # Textual IRC Client
 mas install 803453959 # Slack
-mas install 1063631769 # Medis - GUI for Redis
+mas install 1063631769 # Medis
+mas install 1480068668 # Messenger
+mas install 1147396723 # WhatsApp
 
 # Install Homebrew apps
 brew install cmake
