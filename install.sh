@@ -42,6 +42,7 @@ mas install 803453959 # Slack
 mas install 1063631769 # Medis
 mas install 1480068668 # Messenger
 mas install 1147396723 # WhatsApp
+mas install 1451685025 # WireGuard
 
 # Install Homebrew apps
 brew install cmake
