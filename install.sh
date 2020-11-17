@@ -9,14 +9,9 @@ exec $SHELL -l # Refresh shell to pick up new git version
 brew install zsh
 exec $SHELL -l # Refresh shell to pick up new zsh version
 
-# Setup shell (Oh My Zsh)
+# Install Oh My Zsh
 compaudit | xargs chmod g-w,o-w # Fix insecure zsh folders by removing group write permission
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-brew install zsh-autosuggestions
-echo source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh >> ~/.zshrc
-brew install zsh-syntax-highlighting
-echo source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh >> ~/.zshrc
-source .zshrc # Reload zsh config
 
 # Install rbenv and update Ruby
 brew install rbenv
@@ -26,6 +21,20 @@ LATEST_RUBY_VERSION="$(rbenv install -l | grep -v - | tail -1 | tr -d '[[:space:
 rbenv install $LATEST_RUBY_VERSION
 rbenv global $LATEST_RUBY_VERSION
 exec $SHELL -l # Refresh shell to pick up new ruby version
+
+# Install zsh-nvm, nvm, Node.js LTS and Yarn
+git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
+echo source ~/.zsh-nvm/zsh-nvm.plugin.zsh >> ~/.zshrc
+source .zshrc # Reload zsh config
+nvm install --lts
+brew install yarn
+
+# Install ZSH plugins
+brew install zsh-autosuggestions
+echo source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh >> ~/.zshrc
+brew install zsh-syntax-highlighting
+echo source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh >> ~/.zshrc
+source .zshrc # Reload zsh config
 
 # Install App Store apps
 brew install mas
@@ -45,13 +54,6 @@ brew install cmake
 brew install gettext
 brew install neovim
 brew install tmux
-
-# Install zsh-nvm, nvm, Node.js LTS and Yarn
-git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
-echo source ~/.zsh-nvm/zsh-nvm.plugin.zsh >> ~/.zshrc
-source .zshrc # Reload zsh config
-nvm install --lts
-brew install yarn
 
 # Install Java (OpenJDK)
 brew cask install openjdk
