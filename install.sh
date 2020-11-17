@@ -53,6 +53,7 @@ sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtua
 
 # Install Casks (drivers)
 brew cask install homebrew/cask-drivers/logitech-options
+brew cask install caldigit-thunderbolt-charging
 brew cask install paragon-ntfs
 
 # Install Casks (languages)
