@@ -103,6 +103,8 @@ brew cask install vlc
 brew cask install megasync
 brew cask install google-backup-and-sync
 brew cask install onecast
+brew cask install microsoft-teams
+brew cask install zoom
 
 # Install Vagrant plugins
 vagrant plugin install vagrant-reload
