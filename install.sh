@@ -96,6 +96,7 @@ brew cask install mysqlworkbench
 brew cask install azure-data-studio
 brew cask install visual-studio-code
 brew cask install rider
+brew cask install phpstorm
 
 # Install Casks
 brew cask install adobe-creative-cloud
