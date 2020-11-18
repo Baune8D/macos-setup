@@ -121,7 +121,7 @@ brew cask install megasync
 brew cask install google-backup-and-sync
 brew cask install onecast
 brew cask install microsoft-teams
-brew cask install zoom
+brew cask install zoomus
 brew cask install plex-media-player
 
 # Install Vagrant plugins
