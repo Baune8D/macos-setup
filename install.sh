@@ -97,6 +97,7 @@ brew cask install azure-data-studio
 brew cask install visual-studio-code
 brew cask install rider
 brew cask install phpstorm
+brew cask install intellij-idea-ce
 
 # Install Casks
 brew cask install adobe-creative-cloud
