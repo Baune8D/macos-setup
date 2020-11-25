@@ -10,8 +10,8 @@ brew install zsh
 exec $SHELL -l # Refresh shell to pick up new zsh version
 
 # Install Oh My Zsh
-compaudit | xargs chmod g-w,o-w # Fix insecure zsh folders by removing group write permission
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+compaudit | xargs chmod g-w,o-w # Fix insecure zsh folders by removing group and others write permission
 
 # Install rbenv and update Ruby
 brew install rbenv
@@ -38,6 +38,7 @@ source .zshrc # Reload zsh config
 
 # Install App Store apps
 brew install mas
+printf "Please open App Store and sign in before proceeding " && read
 mas install 497799835 # Xcode
 sudo xcodebuild -license accept # Accept Xcode license
 mas install 425424353 # The Unarchiver
@@ -51,7 +52,6 @@ mas install 1451685025 # WireGuard
 
 # Install Homebrew packages
 brew install cmake
-brew install gettext
 brew install neovim
 brew install tmux
 
@@ -59,7 +59,7 @@ brew install tmux
 brew install php
 exec $SHELL -l # Refresh shell to pick up new PHP version
 brew install composer
-echo COMPOSER_MEMORY_LIMIT=-1 >> ~/.zshrc
+echo export COMPOSER_MEMORY_LIMIT=-1 >> ~/.zshrc
 
 # Install Java (OpenJDK)
 brew cask install openjdk
