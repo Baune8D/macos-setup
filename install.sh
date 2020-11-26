@@ -40,6 +40,7 @@ source .zshrc # Reload zsh config
 brew install mas
 printf "Please open App Store and sign in before proceeding " && read
 mas install 497799835 # Xcode
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer # Use full Xcode instead of CLT
 sudo xcodebuild -license accept # Accept Xcode license
 mas install 425424353 # The Unarchiver
 mas install 1295203466 # Microsoft Remote Desktop
