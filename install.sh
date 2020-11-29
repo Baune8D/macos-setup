@@ -66,6 +66,10 @@ echo export COMPOSER_MEMORY_LIMIT=-1 >> ~/.zshrc
 brew cask install openjdk
 sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk # Make OpenJDK visible to the system Java wrappers
 
+# Install .NET
+brew cask install dotnet-sdk
+export PATH="$PATH:/Users/baunegaard/.dotnet/tools"
+
 # Install Casks (Drivers)
 brew cask install homebrew/cask-drivers/logitech-options
 brew cask install caldigit-thunderbolt-charging
@@ -74,7 +78,6 @@ brew cask install paragon-ntfs
 # Install Casks (Frameworks)
 brew cask install powershell
 brew cask install mono-mdk
-brew cask install dotnet-sdk
 
 # Install Casks (Virtualization)
 brew cask install vagrant
