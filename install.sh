@@ -68,7 +68,7 @@ sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtua
 
 # Install .NET
 brew cask install dotnet-sdk
-export PATH="$PATH:/Users/baunegaard/.dotnet/tools"
+echo export PATH="$PATH:/Users/baunegaard/.dotnet/tools" >> ~/.zshrc
 
 # Install Casks (Drivers)
 brew cask install homebrew/cask-drivers/logitech-options
