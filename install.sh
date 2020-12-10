@@ -139,6 +139,7 @@ code --install-extension octref.vetur
 # Install Ruby gems
 gem install bundler
 gem install ultrahook
+gem install jekyll
 
 # Install Casks requiring extra intervention
 brew install --cask logitech-options
