@@ -26,7 +26,7 @@ compaudit | xargs chmod g-w,o-w # Fix insecure zsh folders by removing group and
 # Install rbenv and update Ruby
 brew install rbenv
 echo 'eval "$(rbenv init -)"' | tee -a ~/.bash_profile ~/.zshrc > /dev/null
-source .zshrc # Reload zsh config
+source ~/.zshrc # Reload zsh config
 LATEST_RUBY_VERSION="$(rbenv install -l | grep -v - | tail -1 | tr -d '[[:space:]]')"
 rbenv install $LATEST_RUBY_VERSION
 rbenv global $LATEST_RUBY_VERSION
@@ -35,7 +35,7 @@ exec $SHELL -l # Refresh shell to pick up new Ruby version
 # Install zsh-nvm, nvm, Node.js LTS and Yarn
 git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
 echo source ~/.zsh-nvm/zsh-nvm.plugin.zsh >> ~/.zshrc
-source .zshrc # Reload zsh config
+source ~/.zshrc # Reload zsh config
 nvm install --lts
 brew install yarn
 
@@ -44,7 +44,7 @@ brew install zsh-autosuggestions
 echo source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh >> ~/.zshrc
 brew install zsh-syntax-highlighting
 echo source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh >> ~/.zshrc
-source .zshrc # Reload zsh config
+source ~/.zshrc # Reload zsh config
 
 # Install App Store apps
 mas install 425424353 # The Unarchiver
@@ -66,10 +66,12 @@ brew install php
 exec $SHELL -l # Refresh shell to pick up new PHP version
 brew install composer
 echo export COMPOSER_MEMORY_LIMIT=-1 >> ~/.zshrc
+source ~/.zshrc # Reload zsh config
 
 # Install .NET
 brew install --cask dotnet-sdk
 echo export PATH='$PATH':/Users/$(whoami)/.dotnet/tools >> ~/.zshrc
+source ~/.zshrc # Reload zsh config
 
 # Install Casks
 brew install --cask paragon-ntfs
