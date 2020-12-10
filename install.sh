@@ -116,6 +116,7 @@ brew install --cask google-backup-and-sync
 brew install --cask onecast
 brew install --cask microsoft-teams
 brew install --cask plex-media-player
+brew install --cask raspberry-pi-imager
 
 # Install Vagrant plugins
 vagrant plugin install vagrant-reload
