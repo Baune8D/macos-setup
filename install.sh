@@ -3,6 +3,16 @@
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
+# Tap into additional repositories
+brew tap homebrew/cask-drivers
+
+# Install Xcode
+brew install mas
+printf "Please open App Store and sign in before proceeding " && read
+mas install 497799835 # Xcode
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer # Use full Xcode instead of CLT
+sudo xcodebuild -license accept # Accept Xcode license
+
 # Install Essentials
 brew install git
 exec $SHELL -l # Refresh shell to pick up new git version
@@ -37,11 +47,6 @@ echo source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source .zshrc # Reload zsh config
 
 # Install App Store apps
-brew install mas
-printf "Please open App Store and sign in before proceeding " && read
-mas install 497799835 # Xcode
-sudo xcode-select -s /Applications/Xcode.app/Contents/Developer # Use full Xcode instead of CLT
-sudo xcodebuild -license accept # Accept Xcode license
 mas install 425424353 # The Unarchiver
 mas install 1295203466 # Microsoft Remote Desktop
 mas install 1262957439 # Textual IRC Client
@@ -62,73 +67,55 @@ exec $SHELL -l # Refresh shell to pick up new PHP version
 brew install composer
 echo export COMPOSER_MEMORY_LIMIT=-1 >> ~/.zshrc
 
-# Install Java (OpenJDK)
-brew cask install openjdk
-sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk # Make OpenJDK visible to the system Java wrappers
-
 # Install .NET
-brew cask install dotnet-sdk
-WHO_AM_I=
+brew install --cask dotnet-sdk
 echo export PATH='$PATH':/Users/$(whoami)/.dotnet/tools >> ~/.zshrc
 
-# Install Casks (Drivers)
-brew cask install homebrew/cask-drivers/logitech-options
-brew cask install caldigit-thunderbolt-charging
-brew cask install paragon-ntfs
-
-# Install Casks (Frameworks)
-brew cask install powershell
-brew cask install mono-mdk
-
-# Install Casks (Virtualization)
-brew cask install vagrant
-brew cask install vagrant-manager
-brew cask install vmware-fusion
-brew cask install vagrant-vmware-utility
-brew cask install docker
-brew cask install parallels
-brew cask install virtualbox
-brew cask install virtualbox-extension-pack
-
-# Install Casks (Development)
-brew cask install redis
-brew cask install ngrok
-brew cask install github
-brew cask install charles
-brew cask install postman
-brew cask install mamp
-brew cask install mysqlworkbench
-brew cask install azure-data-studio
-brew cask install visual-studio-code
-brew cask install rider
-brew cask install phpstorm
-brew cask install intellij-idea-ce
-
 # Install Casks
-brew cask install adobe-creative-cloud
-brew cask install vnc-viewer
-brew cask install forklift
-brew cask install google-chrome
-brew cask install firefox
-brew cask install sabnzbd
-brew cask install steam
-brew cask install dropbox
-brew cask install skype
-brew cask install gitter
-brew cask install spotify
-brew cask install iterm2
-brew cask install imageoptim
-brew cask install balenaetcher
-brew cask install discord
-brew cask install sdformatter
-brew cask install teamviewer
-brew cask install vlc
-brew cask install megasync
-brew cask install google-backup-and-sync
-brew cask install onecast
-brew cask install microsoft-teams
-brew cask install zoomus
-brew cask install plex-media-player
+brew install --cask paragon-ntfs
+brew install --cask adoptopenjdk
+brew install --cask powershell
+brew install --cask mono-mdk
+brew install --cask vagrant
+brew install --cask vagrant-manager
+brew install --cask vmware-fusion
+brew install --cask vagrant-vmware-utility
+brew install --cask docker
+brew install --cask parallels
+brew install --cask redis
+brew install --cask ngrok
+brew install --cask github
+brew install --cask charles
+brew install --cask postman
+brew install --cask mamp
+brew install --cask mysqlworkbench
+brew install --cask azure-data-studio
+brew install --cask visual-studio-code
+brew install --cask rider
+brew install --cask phpstorm
+brew install --cask intellij-idea-ce
+brew install --cask adobe-creative-cloud
+brew install --cask vnc-viewer
+brew install --cask forklift
+brew install --cask google-chrome
+brew install --cask firefox
+brew install --cask sabnzbd
+brew install --cask steam
+brew install --cask dropbox
+brew install --cask skype
+brew install --cask gitter
+brew install --cask spotify
+brew install --cask iterm2
+brew install --cask imageoptim
+brew install --cask balenaetcher
+brew install --cask discord
+brew install --cask sdformatter
+brew install --cask vlc
+brew install --cask megasync
+brew install --cask google-backup-and-sync
+brew install --cask onecast
+brew install --cask microsoft-teams
+brew install --cask plex-media-player
 
 # Install Vagrant plugins
 vagrant plugin install vagrant-reload
@@ -149,6 +136,14 @@ code --install-extension octref.vetur
 # Install Ruby gems
 gem install bundler
 gem install ultrahook
+
+# Install Casks requiring extra intervention
+brew install --cask logitech-options
+brew install --cask caldigit-thunderbolt-charging
+brew install --cask virtualbox
+brew install --cask virtualbox-extension-pack
+brew install --cask zoomus
+brew install --cask teamviewer
 
 # Open folders containing manual installers
 open /usr/local/Caskroom/paragon-ntfs
