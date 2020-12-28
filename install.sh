@@ -136,6 +136,7 @@ code --install-extension ms-azuretools.vscode-docker
 code --install-extension ms-vscode-remote.remote-containers
 code --install-extension ms-vscode.powershell
 code --install-extension octref.vetur
+code --install-extension felixfbecker.php-debug
 
 # Install Ruby gems
 gem install bundler
