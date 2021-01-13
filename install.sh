@@ -32,6 +32,15 @@ rbenv install $LATEST_RUBY_VERSION
 rbenv global $LATEST_RUBY_VERSION
 exec $SHELL -l # Refresh shell to pick up new Ruby version
 
+# Install pyenv and update Python
+brew install pyenv
+echo 'eval "$(pyenv init -)"' | tee -a ~/.bash_profile ~/.zshrc > /dev/null
+source ~/.zshrc # Reload zsh config
+LATEST_PYTHON_VERSION="$(pyenv install -l | grep -v - | tail -1 | tr -d '[[:space:]]')"
+pyenv install $LATEST_PYTHON_VERSION
+pyenv global $LATEST_PYTHON_VERSION
+exec $SHELL -l # Refresh shell to pick up new Python version
+
 # Install zsh-nvm, nvm, Node.js LTS and Yarn
 git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
 echo source ~/.zsh-nvm/zsh-nvm.plugin.zsh >> ~/.zshrc
@@ -39,7 +48,7 @@ source ~/.zshrc # Reload zsh config
 nvm install --lts
 brew install yarn
 
-# Install ZSH plugins
+# Install Zsh plugins
 brew install zsh-autosuggestions
 echo source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh >> ~/.zshrc
 brew install zsh-syntax-highlighting
