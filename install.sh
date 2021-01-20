@@ -57,13 +57,13 @@ source ~/.zshrc # Reload zsh config
 
 # Install App Store apps
 mas install 425424353 # The Unarchiver
-mas install 1295203466 # Microsoft Remote Desktop
-mas install 1262957439 # Textual IRC Client
 mas install 803453959 # Slack
 mas install 1063631769 # Medis
-mas install 1480068668 # Messenger
 mas install 1147396723 # WhatsApp
+mas install 1262957439 # Textual IRC Client
+mas install 1295203466 # Microsoft Remote Desktop
 mas install 1451685025 # WireGuard
+mas install 1480068668 # Messenger
 
 # Install Homebrew packages
 brew install cmake
@@ -83,82 +83,83 @@ echo export PATH='$PATH':/Users/$(whoami)/.dotnet/tools >> ~/.zshrc
 source ~/.zshrc # Reload zsh config
 
 # Install Casks
-brew install --cask paragon-ntfs
+brew install --cask adobe-creative-cloud
 brew install --cask adoptopenjdk
-brew install --cask powershell
+brew install --cask azure-data-studio
+brew install --cask balenaetcher
+brew install --cask charles
+brew install --cask clion
+brew install --cask discord
+brew install --cask docker
+brew install --cask dropbox
+brew install --cask firefox
+brew install --cask forklift
+brew install --cask github
+brew install --cask gitter
+brew install --cask google-backup-and-sync
+brew install --cask google-chrome
+brew install --cask imageoptim
+brew install --cask intellij-idea-ce
+brew install --cask iterm2
+brew install --cask mamp
+brew install --cask megasync
+brew install --cask microsoft-teams
 brew install --cask mono-mdk
+brew install --cask mysqlworkbench
+brew install --cask ngrok
+brew install --cask onecast
+brew install --cask paragon-ntfs
+brew install --cask parallels
+brew install --cask phpstorm
+brew install --cask plex
+brew install --cask postman
+brew install --cask powershell
+brew install --cask raspberry-pi-imager
+brew install --cask redis
+brew install --cask rider
+brew install --cask sabnzbd
+brew install --cask sdformatter
+brew install --cask skype
+brew install --cask spotify
+brew install --cask steam
 brew install --cask vagrant
 brew install --cask vagrant-manager
-brew install --cask vmware-fusion
 brew install --cask vagrant-vmware-utility
-brew install --cask docker
-brew install --cask parallels
-brew install --cask redis
-brew install --cask ngrok
-brew install --cask github
-brew install --cask charles
-brew install --cask postman
-brew install --cask mamp
-brew install --cask mysqlworkbench
-brew install --cask azure-data-studio
 brew install --cask visual-studio-code
-brew install --cask rider
-brew install --cask phpstorm
-brew install --cask intellij-idea-ce
-brew install --cask adobe-creative-cloud
-brew install --cask vnc-viewer
-brew install --cask forklift
-brew install --cask google-chrome
-brew install --cask firefox
-brew install --cask sabnzbd
-brew install --cask steam
-brew install --cask dropbox
-brew install --cask skype
-brew install --cask gitter
-brew install --cask spotify
-brew install --cask iterm2
-brew install --cask imageoptim
-brew install --cask balenaetcher
-brew install --cask discord
-brew install --cask sdformatter
 brew install --cask vlc
-brew install --cask megasync
-brew install --cask google-backup-and-sync
-brew install --cask onecast
-brew install --cask microsoft-teams
-brew install --cask plex-media-player
-brew install --cask raspberry-pi-imager
+brew install --cask vmware-fusion
+brew install --cask vnc-viewer
 
 # Install Vagrant plugins
-vagrant plugin install vagrant-reload
 vagrant plugin install vagrant-hostmanager
 vagrant plugin install vagrant-parallels
+vagrant plugin install vagrant-reload
 vagrant plugin install vagrant-vmware-desktop
 
 # Install Visual Studio Code extensions
-code --install-extension ms-dotnettools.csharp
+code --install-extension dbaeumer.vscode-eslint
 code --install-extension editorconfig.editorconfig
 code --install-extension esbenp.prettier-vscode
-code --install-extension dbaeumer.vscode-eslint
-code --install-extension stylelint.vscode-stylelint
+code --install-extension felixfbecker.php-debug
 code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-dotnettools.csharp
 code --install-extension ms-vscode-remote.remote-containers
 code --install-extension ms-vscode.powershell
 code --install-extension octref.vetur
-code --install-extension felixfbecker.php-debug
+code --install-extension stylelint.vscode-stylelint
 
 # Install Ruby gems
 gem install bundler
-gem install ultrahook
 gem install jekyll
+gem install ultrahook
 
 # Install Casks requiring extra intervention
-brew install --cask logitech-options
 brew install --cask caldigit-thunderbolt-charging
+brew install --cask logitech-options
+brew install --cask teamviewer
 brew install --cask virtualbox
 brew install --cask virtualbox-extension-pack
 brew install --cask zoomus
-brew install --cask teamviewer
 
 # Open folders containing manual installers
 open /usr/local/Caskroom/paragon-ntfs
