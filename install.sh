@@ -81,6 +81,7 @@ source ~/.zshrc # Reload zsh config
 brew install --cask dotnet-sdk
 echo export PATH='$PATH':/Users/$(whoami)/.dotnet/tools >> ~/.zshrc
 source ~/.zshrc # Reload zsh config
+dotnet tool install Nuke.GlobalTool --global
 
 # Install Casks
 brew install --cask adobe-creative-cloud
