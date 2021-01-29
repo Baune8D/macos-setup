@@ -75,7 +75,9 @@ brew install php
 exec $SHELL -l # Refresh shell to pick up new PHP version
 brew install composer
 echo export COMPOSER_MEMORY_LIMIT=-1 >> ~/.zshrc
+echo export PATH='$PATH':/Users/$(whoami)/.composer/vendor/bin >> ~/.zshrc
 source ~/.zshrc # Reload zsh config
+composer global require laravel/installer
 
 # Install .NET
 brew install --cask dotnet-sdk
