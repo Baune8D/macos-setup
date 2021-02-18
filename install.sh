@@ -132,6 +132,7 @@ brew install --cask visual-studio-code
 brew install --cask vlc
 brew install --cask vmware-fusion
 brew install --cask vnc-viewer
+brew install --cask zoom
 
 # Install Vagrant plugins
 vagrant plugin install vagrant-hostmanager
@@ -162,7 +163,6 @@ brew install --cask logitech-options
 brew install --cask teamviewer
 brew install --cask virtualbox
 brew install --cask virtualbox-extension-pack
-brew install --cask zoomus
 
 # Open folders containing manual installers
 open /usr/local/Caskroom/paragon-ntfs
