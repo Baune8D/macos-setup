@@ -102,7 +102,7 @@ brew install --cask gitter
 brew install --cask google-backup-and-sync
 brew install --cask google-chrome
 brew install --cask imageoptim
-brew install --cask intellij-idea-ce
+brew install --cask intellij-idea
 brew install --cask iterm2
 brew install --cask mamp
 brew install --cask megasync
@@ -132,6 +132,7 @@ brew install --cask visual-studio-code
 brew install --cask vlc
 brew install --cask vmware-fusion
 brew install --cask vnc-viewer
+brew install --cask webstorm
 brew install --cask zoom
 
 # Install Vagrant plugins
