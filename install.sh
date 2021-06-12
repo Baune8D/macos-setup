@@ -25,9 +25,6 @@ compaudit | xargs chmod g-w,o-w # Fix insecure zsh folders by removing group and
 
 # Install rbenv and update Ruby
 brew install rbenv
-echo 'export PYENV_ROOT="$HOME/.pyenv"' | tee -a ~/.profile ~/.zprofile > /dev/null
-echo 'export PATH="$PYENV_ROOT/bin:$PATH"' | tee -a ~/.profile ~/.zprofile > /dev/null
-echo 'eval "$(pyenv init --path)"' | tee -a ~/.profile ~/.zprofile > /dev/null
 echo 'eval "$(rbenv init -)"' | tee -a ~/.bash_profile ~/.zshrc > /dev/null
 source ~/.zshrc # Reload zsh config
 LATEST_RUBY_VERSION="$(rbenv install -l | grep -v - | tail -1 | tr -d '[[:space:]]')"
@@ -37,6 +34,9 @@ exec $SHELL -l # Refresh shell to pick up new Ruby version
 
 # Install pyenv and update Python
 brew install pyenv
+echo 'export PYENV_ROOT="$HOME/.pyenv"' | tee -a ~/.profile ~/.zprofile > /dev/null
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' | tee -a ~/.profile ~/.zprofile > /dev/null
+echo 'eval "$(pyenv init --path)"' | tee -a ~/.profile ~/.zprofile > /dev/null
 echo 'eval "$(pyenv init -)"' | tee -a ~/.bash_profile ~/.zshrc > /dev/null
 source ~/.zshrc # Reload zsh config
 LATEST_PYTHON_VERSION="$(pyenv install -l | grep -v - | tail -1 | tr -d '[[:space:]]')"
