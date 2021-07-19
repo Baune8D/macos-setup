@@ -107,6 +107,7 @@ brew install --cask google-chrome
 brew install --cask imageoptim
 brew install --cask intellij-idea
 brew install --cask iterm2
+brew install --cask jetbrains-toolbox
 brew install --cask mamp
 brew install --cask megasync
 brew install --cask microsoft-teams
