@@ -39,7 +39,7 @@ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' | tee -a ~/.profile ~/.zprofile > /de
 echo 'eval "$(pyenv init --path)"' | tee -a ~/.profile ~/.zprofile > /dev/null
 echo 'eval "$(pyenv init -)"' | tee -a ~/.bash_profile ~/.zshrc > /dev/null
 source ~/.zshrc # Reload zsh config
-LATEST_PYTHON_VERSION="$(pyenv install -l | grep -v - | tail -1 | tr -d '[[:space:]]')"
+LATEST_PYTHON_VERSION="$(pyenv install -l | grep -v -e - -e a | grep '\.' | tail -1 | tr -d '[[:space:]]')"
 pyenv install $LATEST_PYTHON_VERSION
 pyenv global $LATEST_PYTHON_VERSION
 exec $SHELL -l # Refresh shell to pick up new Python version
