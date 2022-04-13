@@ -70,8 +70,11 @@ mas install 1480068668 # Messenger
 
 # Install Homebrew packages
 brew install cmake
-brew install neovim
 brew install tmux
+
+# Install Neovim and set as default editor
+brew install neovim
+echo 'export EDITOR="nvim"' >> ~/.zshrc
 
 # Install PHP and Composer
 brew install php
