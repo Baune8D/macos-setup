@@ -76,7 +76,7 @@ brew install tmux
 brew install neovim
 echo 'export EDITOR="nvim"' >> ~/.zshrc
 
-# Install PHP and Composer
+# Install PHP, Composer and Laravel
 brew install php
 exec $SHELL -l # Refresh shell to pick up new PHP version
 brew install composer
@@ -85,15 +85,13 @@ echo export PATH='$PATH':/Users/$(whoami)/.composer/vendor/bin >> ~/.zshrc
 source ~/.zshrc # Reload zsh config
 composer global require laravel/installer
 
-# Install .NET
+# Install .NET and NUKE
 brew install --cask dotnet-sdk
 echo export PATH='$PATH':/Users/$(whoami)/.dotnet/tools >> ~/.zshrc
 source ~/.zshrc # Reload zsh config
 dotnet tool install Nuke.GlobalTool --global
 
 # Install Casks
-brew install --cask adobe-creative-cloud
-brew install --cask adoptopenjdk
 brew install --cask azure-data-studio
 brew install --cask balenaetcher
 brew install --cask charles
@@ -105,31 +103,33 @@ brew install --cask firefox
 brew install --cask forklift
 brew install --cask github
 brew install --cask gitter
-brew install --cask google-backup-and-sync
+brew install --cask google-drive
 brew install --cask google-chrome
+brew install --cask google-cloud-sdk
 brew install --cask imageoptim
 brew install --cask intellij-idea
 brew install --cask iterm2
 brew install --cask jetbrains-toolbox
+brew install --cask libreoffice
 brew install --cask mamp
-brew install --cask megasync
-brew install --cask microsoft-teams
 brew install --cask mono-mdk
 brew install --cask mysqlworkbench
 brew install --cask ngrok
-brew install --cask onecast
+brew install --cask paragon-extfs
 brew install --cask paragon-ntfs
 brew install --cask parallels
+brew install --cask parallels-virtualization-sdk
 brew install --cask phpstorm
 brew install --cask plex
 brew install --cask postman
 brew install --cask powershell
+brew install --cask private-internet-access
+brew install --cask pronterface
 brew install --cask raspberry-pi-imager
 brew install --cask redis
 brew install --cask rider
 brew install --cask sabnzbd
 brew install --cask sdformatter
-brew install --cask skype
 brew install --cask spotify
 brew install --cask steam
 brew install --cask vagrant
@@ -167,10 +167,11 @@ gem install ultrahook
 
 # Install Casks requiring extra intervention
 brew install --cask caldigit-thunderbolt-charging
-brew install --cask logitech-options
+brew install --cask logi-options-plus
 brew install --cask teamviewer
 brew install --cask virtualbox
 brew install --cask virtualbox-extension-pack
 
 # Open folders containing manual installers
+open /usr/local/Caskroom/paragon-extfs
 open /usr/local/Caskroom/paragon-ntfs
