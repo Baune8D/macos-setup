@@ -71,6 +71,7 @@ mas install 1480068668 # Messenger
 # Install Homebrew packages
 brew install cmake
 brew install tmux
+brew install openjdk
 
 # Install Neovim and set as default editor
 brew install neovim
