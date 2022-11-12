@@ -85,6 +85,8 @@ echo export COMPOSER_MEMORY_LIMIT=-1 >> ~/.zshrc
 echo export PATH='$PATH':/Users/$(whoami)/.composer/vendor/bin >> ~/.zshrc
 source ~/.zshrc # Reload zsh config
 composer global require laravel/installer
+echo alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail' >> ~/.zshrc # Create Laravel Sail alias
+source ~/.zshrc # Reload zsh config
 
 # Install .NET and NUKE
 brew install --cask dotnet-sdk
