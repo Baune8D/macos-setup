@@ -72,6 +72,7 @@ mas install 1480068668 # Messenger
 brew install cmake
 brew install tmux
 brew install openjdk
+brew install fish
 
 # Install Neovim and set as default editor
 brew install neovim
@@ -142,6 +143,7 @@ brew install --cask visual-studio-code
 brew install --cask vlc
 brew install --cask vmware-fusion
 brew install --cask vnc-viewer
+brew install --cask warp
 brew install --cask webstorm
 brew install --cask zoom
 
