@@ -91,6 +91,7 @@ brew install --cask dotnet-sdk6-0-400
 # Install Casks
 brew install --cask azure-data-studio
 brew install --cask balenaetcher
+brew install --cask bluesnooze
 brew install --cask charles
 brew install --cask discord
 brew install --cask docker
