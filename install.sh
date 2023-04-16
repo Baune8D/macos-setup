@@ -155,8 +155,7 @@ gem install ultrahook
 
 # Install drivers
 brew tap homebrew/cask-drivers
-brew install --cask caldigit-thunderbolt-charging
-brew install --cask logi-options-plus
+brew install logi-options-plus
 brew install --cask paragon-extfs
 brew install --cask paragon-ntfs
 
