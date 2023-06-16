@@ -37,8 +37,11 @@ echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.bashrc
 source ~/.zshrc # Reload zsh config
 nvm install --lts
 
-# Install Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# Install Starship
+brew tap homebrew/cask-fonts
+brew install --cask font-fira-code-nerd-font
+brew install starship
+echo 'eval "$(starship init zsh)"' >> ~/.zshrc
 
 # Install Zsh plugins
 brew install zsh-autosuggestions
