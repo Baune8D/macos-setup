@@ -50,9 +50,9 @@ source ~/.zshrc # Reload zsh config
 
 # Install Zsh plugins
 brew install zsh-autosuggestions
-echo source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh >> ~/.zshrc
+echo source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh >> ~/.zshrc
 brew install zsh-syntax-highlighting
-echo source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh >> ~/.zshrc
+echo source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh >> ~/.zshrc
 source ~/.zshrc # Reload zsh config
 
 # Install App Store apps
@@ -170,6 +170,6 @@ brew install --cask paragon-ntfs
 brew install --cask teamviewer
 
 # Open folders containing manual installers
-open /usr/local/Caskroom/logi-options-plus
-open /usr/local/Caskroom/paragon-extfs
-open /usr/local/Caskroom/paragon-ntfs
+open /opt/homebrew/Caskroom/logi-options-plus
+open /opt/homebrew/Caskroom/paragon-extfs
+open /opt/homebrew/Caskroom/paragon-ntfs
