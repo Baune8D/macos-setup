@@ -18,9 +18,9 @@ brew install rbenv ruby-build
 brew install libyaml # Build dependencies
 echo 'eval "$(rbenv init -)"' | tee -a ~/.profile ~/.zprofile > /dev/null
 source ~/.zprofile # Reload zsh config
-LATEST_RUBY_VERSION="$(rbenv install -l | grep -v - | tail -1 | tr -d '[[:space:]]')"
-rbenv install $LATEST_RUBY_VERSION
-rbenv global $LATEST_RUBY_VERSION
+RUBY_VERSION="3.2.2"
+rbenv install $RUBY_VERSION
+rbenv global $RUBY_VERSION
 
 # Install pyenv and Python
 brew install pyenv
@@ -29,9 +29,9 @@ echo 'export PYENV_ROOT="$HOME/.pyenv"' | tee -a ~/.profile ~/.zprofile > /dev/n
 echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' | tee -a ~/.profile ~/.zprofile > /dev/null
 echo 'eval "$(pyenv init -)"' | tee -a ~/.profile ~/.zprofile > /dev/null
 source ~/.zprofile # Reload zsh config
-LATEST_PYTHON_VERSION="$(pyenv install -l | grep -v -e - -e a | grep '\.' | tail -1 | tr -d '[[:space:]]')"
-pyenv install $LATEST_PYTHON_VERSION
-pyenv global $LATEST_PYTHON_VERSION
+PYTHON_VERSION="3.11.5"
+pyenv install $PYTHON_VERSION
+pyenv global $PYTHON_VERSION
 
 # Install zsh-nvm, nvm, Node.js LTS
 git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
@@ -40,6 +40,22 @@ echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.profile
 echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.profile
 source ~/.zprofile # Reload zsh config
 nvm install --lts
+
+# Install PHP, Composer and Laravel
+brew install phpbrew
+brew install autoconf pkg-config bzip2 # Build dependencies
+phpbrew init
+echo '[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc' | tee -a ~/.profile ~/.zprofile > /dev/null
+source ~/.zprofile # Reload zsh config
+PHP_VERSION="8.1.23"
+phpbrew install $PHP_VERSION
+phpbrew switch php-$PHP_VERSION
+brew install composer
+echo 'export PATH=$PATH:$HOME/.composer/vendor/bin' >> ~/.zprofile
+source ~/.zprofile # Reload zsh config
+echo export COMPOSER_MEMORY_LIMIT=-1 >> ~/.zshrc
+echo "alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'" >> ~/.zshrc # Create Laravel Sail alias
+source ~/.zshrc # Reload zsh config
 
 # Install Starship
 brew tap homebrew/cask-fonts
@@ -74,16 +90,6 @@ brew install zsh
 # Install Neovim and set as default editor
 brew install neovim
 echo 'export EDITOR="nvim"' >> ~/.zshrc
-
-# Install PHP, Composer and Laravel
-brew install php
-brew install composer
-echo 'export PATH=$PATH:$HOME/.composer/vendor/bin' >> ~/.zprofile
-source ~/.zprofile # Reload zsh config
-echo export COMPOSER_MEMORY_LIMIT=-1 >> ~/.zshrc
-echo "alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'" >> ~/.zshrc # Create Laravel Sail alias
-source ~/.zshrc # Reload zsh config
-composer global require laravel/installer
 
 # Install .NET and NUKE
 brew install --cask dotnet-sdk # Newest .NET SDK
@@ -154,6 +160,9 @@ code --install-extension ms-vscode-remote.remote-containers
 code --install-extension ms-vscode.powershell
 code --install-extension octref.vetur
 code --install-extension stylelint.vscode-stylelint
+
+# Install Composer packages
+composer global require laravel/installer
 
 # Install Ruby gems
 gem install bundler
