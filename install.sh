@@ -1,19 +1,23 @@
 #!/bin/bash
 
+# Install Rosetta 2
+softwareupdate --install-rosetta
+
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-(echo; echo 'eval "$(/usr/local/bin/brew shellenv)"') >> ~/.zprofile
-eval "$(/usr/local/bin/brew shellenv)"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' | tee -a ~/.profile ~/.zprofile > /dev/null
+source ~/.zprofile # Reload zsh config
+brew analytics off
 
 # Install OpenJDK
 brew install openjdk
-sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 
 # Install rbenv and Ruby
 brew install rbenv ruby-build
 brew install libyaml # Build dependencies
 echo 'eval "$(rbenv init -)"' | tee -a ~/.profile ~/.zprofile > /dev/null
-source ~/.zshrc # Reload zsh config
+source ~/.zprofile # Reload zsh config
 LATEST_RUBY_VERSION="$(rbenv install -l | grep -v - | tail -1 | tr -d '[[:space:]]')"
 rbenv install $LATEST_RUBY_VERSION
 rbenv global $LATEST_RUBY_VERSION
@@ -24,17 +28,17 @@ brew install openssl readline sqlite3 xz zlib tcl-tk # Build dependencies
 echo 'export PYENV_ROOT="$HOME/.pyenv"' | tee -a ~/.profile ~/.zprofile > /dev/null
 echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' | tee -a ~/.profile ~/.zprofile > /dev/null
 echo 'eval "$(pyenv init -)"' | tee -a ~/.profile ~/.zprofile > /dev/null
-source ~/.zshrc # Reload zsh config
+source ~/.zprofile # Reload zsh config
 LATEST_PYTHON_VERSION="$(pyenv install -l | grep -v -e - -e a | grep '\.' | tail -1 | tr -d '[[:space:]]')"
 pyenv install $LATEST_PYTHON_VERSION
 pyenv global $LATEST_PYTHON_VERSION
 
 # Install zsh-nvm, nvm, Node.js LTS
 git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
-echo source ~/.zsh-nvm/zsh-nvm.plugin.zsh >> ~/.zshrc
-echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.bashrc
-echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.bashrc
-source ~/.zshrc # Reload zsh config
+echo source ~/.zsh-nvm/zsh-nvm.plugin.zsh >> ~/.zprofile
+echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.profile
+echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.profile
+source ~/.zprofile # Reload zsh config
 nvm install --lts
 
 # Install Starship
@@ -42,6 +46,7 @@ brew tap homebrew/cask-fonts
 brew install --cask font-fira-code-nerd-font
 brew install starship
 echo 'eval "$(starship init zsh)"' >> ~/.zshrc
+source ~/.zshrc # Reload zsh config
 
 # Install Zsh plugins
 brew install zsh-autosuggestions
@@ -52,7 +57,6 @@ source ~/.zshrc # Reload zsh config
 
 # Install App Store apps
 brew install mas
-mas install 425424353 # The Unarchiver
 mas install 803453959 # Slack
 mas install 1063631769 # Medis
 mas install 1147396723 # WhatsApp
@@ -74,17 +78,17 @@ echo 'export EDITOR="nvim"' >> ~/.zshrc
 # Install PHP, Composer and Laravel
 brew install php
 brew install composer
-echo export COMPOSER_MEMORY_LIMIT=-1 >> ~/.zshrc
 echo 'export PATH=$PATH:$HOME/.composer/vendor/bin' >> ~/.zprofile
-source ~/.zshrc # Reload zsh config
-composer global require laravel/installer
+source ~/.zprofile # Reload zsh config
+echo export COMPOSER_MEMORY_LIMIT=-1 >> ~/.zshrc
 echo "alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'" >> ~/.zshrc # Create Laravel Sail alias
 source ~/.zshrc # Reload zsh config
+composer global require laravel/installer
 
 # Install .NET and NUKE
 brew install --cask dotnet-sdk # Newest .NET SDK
 echo 'export PATH=$PATH:$HOME/.dotnet/tools' >> ~/.zprofile
-source ~/.zshrc # Reload zsh config
+source ~/.zprofile # Reload zsh config
 dotnet tool install Nuke.GlobalTool --global
 
 # Additional .NET SDK versions
