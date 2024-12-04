@@ -86,6 +86,13 @@ brew install git
 brew install nuget
 brew install tmux
 brew install zsh
+brew install hashicorp/tap/packer
+brew install eza
+brew install kubecolor
+
+# Alias system tools
+echo 'alias ls="eza"' >> ~/.zshrc
+echo 'alias kubectl="kubecolor"' >> ~/.zshrc
 
 # Install Neovim and set as default editor
 brew install neovim
