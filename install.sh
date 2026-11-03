@@ -58,7 +58,6 @@ echo "alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'" >> ~/.zshrc # C
 source ~/.zshrc # Reload zsh config
 
 # Install Starship
-brew tap homebrew/cask-fonts
 brew install --cask font-fira-code-nerd-font
 brew install starship
 echo 'eval "$(starship init zsh)"' >> ~/.zshrc
@@ -177,7 +176,6 @@ gem install jekyll
 gem install ultrahook
 
 # Install drivers
-brew tap homebrew/cask-drivers
 brew install logi-options-plus
 brew install --cask paragon-extfs
 brew install --cask paragon-ntfs
