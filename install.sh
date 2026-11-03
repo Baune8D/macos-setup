@@ -1,5 +1,11 @@
 #!/bin/bash
 
+brewfile="$(dirname "${BASH_SOURCE[0]}")/Brewfile"
+if [ ! -f "$brewfile" ]; then
+    echo "No Brewfile next to install.sh. Download the whole repository and run install.sh from it." >&2
+    exit 1
+fi
+
 # Install Rosetta 2
 softwareupdate --install-rosetta
 
@@ -9,13 +15,13 @@ echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' | tee -a ~/.profile ~/.zprofile
 source ~/.zprofile # Reload zsh config
 brew analytics off
 
-# Install OpenJDK
-brew install openjdk
+# Install the Homebrew packages, App Store apps and VS Code extensions in the Brewfile
+brew bundle install --file "$brewfile"
+
+# Let the system Java wrappers find OpenJDK
 sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 
 # Install rbenv and Ruby
-brew install rbenv ruby-build
-brew install libyaml # Build dependencies
 echo 'eval "$(rbenv init -)"' | tee -a ~/.profile ~/.zprofile > /dev/null
 source ~/.zprofile # Reload zsh config
 RUBY_VERSION="3.2.2"
@@ -23,8 +29,6 @@ rbenv install $RUBY_VERSION
 rbenv global $RUBY_VERSION
 
 # Install pyenv and Python
-brew install pyenv
-brew install openssl readline sqlite3 xz zlib tcl-tk # Build dependencies
 echo 'export PYENV_ROOT="$HOME/.pyenv"' | tee -a ~/.profile ~/.zprofile > /dev/null
 echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' | tee -a ~/.profile ~/.zprofile > /dev/null
 echo 'eval "$(pyenv init -)"' | tee -a ~/.profile ~/.zprofile > /dev/null
@@ -42,122 +46,44 @@ source ~/.zprofile # Reload zsh config
 nvm install --lts
 
 # Install PHP, Composer and Laravel
-brew install phpbrew
-brew install autoconf pkg-config bzip2 # Build dependencies
 phpbrew init
 echo '[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc' | tee -a ~/.profile ~/.zprofile > /dev/null
 source ~/.zprofile # Reload zsh config
 PHP_VERSION="8.1.23"
 phpbrew install $PHP_VERSION
 phpbrew switch php-$PHP_VERSION
-brew install composer
 echo 'export PATH=$PATH:$HOME/.composer/vendor/bin' >> ~/.zprofile
 source ~/.zprofile # Reload zsh config
 echo export COMPOSER_MEMORY_LIMIT=-1 >> ~/.zshrc
 echo "alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'" >> ~/.zshrc # Create Laravel Sail alias
 source ~/.zshrc # Reload zsh config
 
-# Install Starship
-brew install --cask font-fira-code-nerd-font
-brew install starship
+# Starship prompt
 echo 'eval "$(starship init zsh)"' >> ~/.zshrc
 source ~/.zshrc # Reload zsh config
 
-# Install Zsh plugins
-brew install zsh-autosuggestions
+# Zsh plugins
 echo source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh >> ~/.zshrc
-brew install zsh-syntax-highlighting
 echo source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh >> ~/.zshrc
 source ~/.zshrc # Reload zsh config
-
-# Install App Store apps
-brew install mas
-mas install 803453959 # Slack
-mas install 1063631769 # Medis
-mas install 310633997 # WhatsApp Messenger
-mas install 1295203466 # Windows App (formerly Microsoft Remote Desktop)
-mas install 1451685025 # WireGuard
-
-# Install Homebrew packages
-brew install git
-brew install nuget
-brew install tmux
-brew install zsh
-brew install hashicorp/tap/packer
-brew install eza
-brew install kubecolor
 
 # Alias system tools
 echo 'alias ls="eza"' >> ~/.zshrc
 echo 'alias kubectl="kubecolor"' >> ~/.zshrc
 
-# Install Neovim and set as default editor
-brew install neovim
+# Neovim as the default editor
 echo 'export EDITOR="nvim"' >> ~/.zshrc
 
-# Install .NET and NUKE
-brew install --cask dotnet-sdk # Newest .NET SDK
+# Install NUKE
 echo 'export PATH=$PATH:$HOME/.dotnet/tools' >> ~/.zprofile
 source ~/.zprofile # Reload zsh config
 dotnet tool install Nuke.GlobalTool --global
-
-# Install Casks
-brew install --cask balenaetcher
-brew install --cask bluesnooze
-brew install --cask charles
-brew install --cask discord
-brew install --cask docker-desktop
-brew install --cask firefox
-brew install --cask forklift
-brew install --cask github
-brew install --cask google-drive
-brew install --cask google-chrome
-brew install --cask gcloud-cli
-brew install --cask imageoptim
-brew install --cask iterm2
-brew install --cask jetbrains-toolbox
-brew install --cask libreoffice
-brew install --cask mamp
-brew install --cask mono-mdk
-brew install --cask mysqlworkbench
-brew install --cask ngrok
-brew install --cask parallels
-brew install --cask plex
-brew install --cask postman
-brew install --cask powershell
-brew install --cask raspberry-pi-imager
-brew install --cask sabnzbd
-brew install --cask sdformatter
-brew install --cask spotify
-brew install --cask steam
-brew install --cask textual
-brew install --cask vagrant
-brew install --cask vagrant-vmware-utility
-brew install --cask virtualbox
-brew install --cask visual-studio-code
-brew install --cask vlc
-brew install --cask realvnc-connect-viewer
-brew install --cask warp
-brew install --cask zoom
 
 # Install Vagrant plugins
 vagrant plugin install vagrant-hostmanager
 vagrant plugin install vagrant-parallels
 vagrant plugin install vagrant-reload
 vagrant plugin install vagrant-vmware-desktop
-
-# Install Visual Studio Code extensions
-code --install-extension dbaeumer.vscode-eslint
-code --install-extension editorconfig.editorconfig
-code --install-extension esbenp.prettier-vscode
-code --install-extension ms-azuretools.vscode-containers
-code --install-extension ms-dotnettools.csharp
-code --install-extension ms-mssql.mssql
-code --install-extension ms-vscode-remote.remote-containers
-code --install-extension ms-vscode.powershell
-code --install-extension stylelint.vscode-stylelint
-code --install-extension vue.volar
-code --install-extension xdebug.php-debug
 
 # Install Composer packages
 composer global require laravel/installer
@@ -166,14 +92,6 @@ composer global require laravel/installer
 gem install bundler
 gem install jekyll
 gem install ultrahook
-
-# Install drivers
-brew install --cask logi-options+
-brew install --cask paragon-extfs
-brew install --cask paragon-ntfs
-
-# Install Casks requiring extra intervention
-brew install --cask teamviewer
 
 # Open the folder containing the NTFS for Mac installer, which has to be run by hand
 open /opt/homebrew/Caskroom/paragon-ntfs
