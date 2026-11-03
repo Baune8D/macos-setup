@@ -108,18 +108,17 @@ brew tap isen-ng/dotnet-sdk-versions
 brew install --cask dotnet-sdk6-0-400
 
 # Install Casks
-brew install --cask azure-data-studio
 brew install --cask balenaetcher
 brew install --cask bluesnooze
 brew install --cask charles
 brew install --cask discord
-brew install --cask docker
+brew install --cask docker-desktop
 brew install --cask firefox
 brew install --cask forklift
 brew install --cask github
 brew install --cask google-drive
 brew install --cask google-chrome
-brew install --cask google-cloud-sdk
+brew install --cask gcloud-cli
 brew install --cask imageoptim
 brew install --cask iterm2
 brew install --cask jetbrains-toolbox
@@ -129,11 +128,9 @@ brew install --cask mono-mdk
 brew install --cask mysqlworkbench
 brew install --cask ngrok
 brew install --cask parallels
-brew install --cask parallels-virtualization-sdk
 brew install --cask plex
 brew install --cask postman
 brew install --cask powershell
-brew install --cask pronterface
 brew install --cask raspberry-pi-imager
 brew install --cask sabnzbd
 brew install --cask sdformatter
@@ -144,8 +141,7 @@ brew install --cask vagrant-vmware-utility
 brew install --cask virtualbox
 brew install --cask visual-studio-code
 brew install --cask vlc
-brew install --cask vmware-fusion
-brew install --cask vnc-viewer
+brew install --cask realvnc-connect-viewer
 brew install --cask warp
 brew install --cask zoom
 
@@ -162,6 +158,7 @@ code --install-extension esbenp.prettier-vscode
 code --install-extension felixfbecker.php-debug
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension ms-dotnettools.csharp
+code --install-extension ms-mssql.mssql
 code --install-extension ms-vscode-remote.remote-containers
 code --install-extension ms-vscode.powershell
 code --install-extension octref.vetur
@@ -176,14 +173,12 @@ gem install jekyll
 gem install ultrahook
 
 # Install drivers
-brew install logi-options-plus
+brew install --cask logi-options+
 brew install --cask paragon-extfs
 brew install --cask paragon-ntfs
 
 # Install Casks requiring extra intervention
 brew install --cask teamviewer
 
-# Open folders containing manual installers
-open /opt/homebrew/Caskroom/logi-options-plus
-open /opt/homebrew/Caskroom/paragon-extfs
+# Open the folder containing the NTFS for Mac installer, which has to be run by hand
 open /opt/homebrew/Caskroom/paragon-ntfs
