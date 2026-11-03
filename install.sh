@@ -6,12 +6,32 @@ if [ ! -f "$brewfile" ]; then
     exit 1
 fi
 
+# Add a line to each of the files unless it's already there, so running the
+# script again doesn't add it twice
+add_line() {
+    local line=$1 file
+    shift
+    for file in "$@"; do
+        touch "$file"
+        grep -qxF -- "$line" "$file" && continue
+        # Start on a new line if the file doesn't end with one
+        if [ -s "$file" ] && [ -n "$(tail -c 1 "$file")" ]; then
+            echo >> "$file"
+        fi
+        printf '%s\n' "$line" >> "$file"
+    done
+}
+
 # Install Rosetta 2
-softwareupdate --install-rosetta
+if ! arch -x86_64 /usr/bin/true 2> /dev/null; then
+    softwareupdate --install-rosetta
+fi
 
 # Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' | tee -a ~/.profile ~/.zprofile > /dev/null
+if [ ! -x /opt/homebrew/bin/brew ]; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+add_line 'eval "$(/opt/homebrew/bin/brew shellenv)"' ~/.profile ~/.zprofile
 source ~/.zprofile # Reload zsh config
 brew analytics off
 
@@ -22,60 +42,66 @@ brew bundle install --file "$brewfile"
 sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 
 # Install rbenv and Ruby
-echo 'eval "$(rbenv init -)"' | tee -a ~/.profile ~/.zprofile > /dev/null
+add_line 'eval "$(rbenv init -)"' ~/.profile ~/.zprofile
 source ~/.zprofile # Reload zsh config
 RUBY_VERSION="3.2.2"
-rbenv install $RUBY_VERSION
-rbenv global $RUBY_VERSION
+rbenv install --skip-existing "$RUBY_VERSION"
+rbenv global "$RUBY_VERSION"
 
 # Install pyenv and Python
-echo 'export PYENV_ROOT="$HOME/.pyenv"' | tee -a ~/.profile ~/.zprofile > /dev/null
-echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' | tee -a ~/.profile ~/.zprofile > /dev/null
-echo 'eval "$(pyenv init -)"' | tee -a ~/.profile ~/.zprofile > /dev/null
+add_line 'export PYENV_ROOT="$HOME/.pyenv"' ~/.profile ~/.zprofile
+add_line 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' ~/.profile ~/.zprofile
+add_line 'eval "$(pyenv init -)"' ~/.profile ~/.zprofile
 source ~/.zprofile # Reload zsh config
 PYTHON_VERSION="3.11.5"
-pyenv install $PYTHON_VERSION
-pyenv global $PYTHON_VERSION
+pyenv install --skip-existing "$PYTHON_VERSION"
+pyenv global "$PYTHON_VERSION"
 
 # Install Node.js LTS with fnm
-echo 'eval "$(fnm env --use-on-cd --shell zsh)"' >> ~/.zprofile
-echo 'eval "$(fnm env --use-on-cd --shell bash)"' >> ~/.profile
+add_line 'eval "$(fnm env --use-on-cd --shell zsh)"' ~/.zprofile
+add_line 'eval "$(fnm env --use-on-cd --shell bash)"' ~/.profile
 source ~/.zprofile # Reload zsh config
 fnm install --lts
 
 # Install PHP, Composer and Laravel
-phpbrew init
-echo '[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc' | tee -a ~/.profile ~/.zprofile > /dev/null
+if [ ! -d ~/.phpbrew ]; then
+    phpbrew init
+fi
+add_line '[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc' ~/.profile ~/.zprofile
 source ~/.zprofile # Reload zsh config
 PHP_VERSION="8.1.23"
-phpbrew install $PHP_VERSION
-phpbrew switch php-$PHP_VERSION
-echo 'export PATH=$PATH:$HOME/.composer/vendor/bin' >> ~/.zprofile
+if [ ! -d ~/.phpbrew/php/"php-$PHP_VERSION" ]; then
+    phpbrew install "$PHP_VERSION"
+fi
+phpbrew switch "php-$PHP_VERSION"
+add_line 'export PATH=$PATH:$HOME/.composer/vendor/bin' ~/.zprofile
 source ~/.zprofile # Reload zsh config
-echo export COMPOSER_MEMORY_LIMIT=-1 >> ~/.zshrc
-echo "alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'" >> ~/.zshrc # Create Laravel Sail alias
+add_line 'export COMPOSER_MEMORY_LIMIT=-1' ~/.zshrc
+add_line "alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'" ~/.zshrc # Laravel Sail alias
 source ~/.zshrc # Reload zsh config
 
 # Starship prompt
-echo 'eval "$(starship init zsh)"' >> ~/.zshrc
+add_line 'eval "$(starship init zsh)"' ~/.zshrc
 source ~/.zshrc # Reload zsh config
 
 # Zsh plugins
-echo source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh >> ~/.zshrc
-echo source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh >> ~/.zshrc
+add_line 'source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh' ~/.zshrc
+add_line 'source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' ~/.zshrc
 source ~/.zshrc # Reload zsh config
 
 # Alias system tools
-echo 'alias ls="eza"' >> ~/.zshrc
-echo 'alias kubectl="kubecolor"' >> ~/.zshrc
+add_line 'alias ls="eza"' ~/.zshrc
+add_line 'alias kubectl="kubecolor"' ~/.zshrc
 
 # Neovim as the default editor
-echo 'export EDITOR="nvim"' >> ~/.zshrc
+add_line 'export EDITOR="nvim"' ~/.zshrc
 
 # Install NUKE
-echo 'export PATH=$PATH:$HOME/.dotnet/tools' >> ~/.zprofile
+add_line 'export PATH=$PATH:$HOME/.dotnet/tools' ~/.zprofile
 source ~/.zprofile # Reload zsh config
-dotnet tool install Nuke.GlobalTool --global
+if ! dotnet tool list --global | grep -qi '^nuke\.globaltool '; then
+    dotnet tool install Nuke.GlobalTool --global
+fi
 
 # Install Vagrant plugins
 vagrant plugin install vagrant-hostmanager
