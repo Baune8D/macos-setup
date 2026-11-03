@@ -74,11 +74,9 @@ source ~/.zshrc # Reload zsh config
 brew install mas
 mas install 803453959 # Slack
 mas install 1063631769 # Medis
-mas install 1147396723 # WhatsApp
-mas install 1262957439 # Textual IRC Client
-mas install 1295203466 # Microsoft Remote Desktop
+mas install 310633997 # WhatsApp Messenger
+mas install 1295203466 # Windows App (formerly Microsoft Remote Desktop)
 mas install 1451685025 # WireGuard
-mas install 1480068668 # Messenger
 
 # Install Homebrew packages
 brew install git
@@ -136,6 +134,7 @@ brew install --cask sabnzbd
 brew install --cask sdformatter
 brew install --cask spotify
 brew install --cask steam
+brew install --cask textual
 brew install --cask vagrant
 brew install --cask vagrant-vmware-utility
 brew install --cask virtualbox
