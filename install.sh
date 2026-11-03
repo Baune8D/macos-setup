@@ -101,10 +101,6 @@ echo 'export PATH=$PATH:$HOME/.dotnet/tools' >> ~/.zprofile
 source ~/.zprofile # Reload zsh config
 dotnet tool install Nuke.GlobalTool --global
 
-# Additional .NET SDK versions
-brew tap isen-ng/dotnet-sdk-versions
-brew install --cask dotnet-sdk6-0-400
-
 # Install Casks
 brew install --cask balenaetcher
 brew install --cask bluesnooze
