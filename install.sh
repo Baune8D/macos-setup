@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/zsh
 
-brewfile="$(dirname "${BASH_SOURCE[0]}")/Brewfile"
+brewfile="${0:a:h}/Brewfile"
 if [ ! -f "$brewfile" ]; then
     echo "No Brewfile next to install.sh. Download the whole repository and run install.sh from it." >&2
     exit 1
