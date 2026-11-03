@@ -1,0 +1,21 @@
+Brewfile
+  s_1da20591e67452::t_70c6e68e872451 10,16-20,23-33
+install.sh
+  s_1da20591e67452::t_0830593db8fff3 47,56,72
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "aed9cc830331b79d56d638fa1acaee7210c29303",
+  "prompts": {},
+  "sessions": {
+    "s_1da20591e67452": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "56de8afb-cd13-4b9c-b07e-fc995dbca6f0",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Morten Larsen <mortenl41@gmail.com>"
+    }
+  }
+}
