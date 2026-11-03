@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  # Weekly, so a package that is renamed, deprecated or removed shows up without a push
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+jobs:
+  shellcheck:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+      # install.sh is a zsh script, which shellcheck doesn't support; the macos job checks it
+      - run: shellcheck check-brewfile.sh
+
+  macos:
+    runs-on: macos-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Check the install.sh syntax
+        run: zsh -n install.sh
+
+      # brew info only reads formulae from taps that are tapped and trusted
+      - name: Tap the Brewfile's taps
+        run: |
+          for tap in $(brew bundle list --tap); do
+            brew trust --tap "$tap"
+            brew tap "$tap"
+          done
+
+      - name: Check the Brewfile entries
+        run: ./check-brewfile.sh
