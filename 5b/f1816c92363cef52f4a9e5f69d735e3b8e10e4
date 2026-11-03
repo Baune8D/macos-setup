@@ -1,0 +1,19 @@
+install.sh
+  s_be36e36f3bf3ca::t_c7b0ef5bcd6543 115,121,144,161,176,183
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "5bf1816c92363cef52f4a9e5f69d735e3b8e10e4",
+  "prompts": {},
+  "sessions": {
+    "s_be36e36f3bf3ca": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "71fb3b53-64d6-4ace-bf21-e868a95a2781",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Morten Larsen <mortenl41@gmail.com>"
+    }
+  }
+}
