@@ -25,4 +25,5 @@ The script that sets up a new Mac (Apple silicon) for its owner.
 - **Never run `install.sh` or `brew bundle install` on the machine you're working on.** They install and upgrade software and change the dotfiles of the person using it. Check changes statically instead.
 - CI runs `zsh -n install.sh` (shellcheck doesn't support zsh), `shellcheck check-brewfile.sh` and, on a macOS runner, `check-brewfile.sh` after tapping and trusting the Brewfile's taps. It also runs every Monday, so an entry that goes away fails CI without a push. Run the same checks before committing; check-brewfile.sh only reads.
 - check-brewfile.sh can't tell when a package is merely end-of-life or no longer maintained (it passed the .NET 6 SDK, Vetur and the Docker extension), so check that by hand too.
+- check-brewfile.sh sets `HOMEBREW_NO_AUTO_UPDATE`, so locally it reads this Mac's cached Homebrew data, which can be out of date (it passed the moved `powershell` cask that CI caught). Trust the CI result, or run `brew update` first.
 - A full run needs a new Mac and takes hours, so the script itself is never run in CI. Say so when a change hasn't been run on a machine.
