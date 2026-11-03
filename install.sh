@@ -44,7 +44,7 @@ sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVir
 # Install rbenv and Ruby
 add_line 'eval "$(rbenv init -)"' ~/.profile ~/.zprofile
 source ~/.zprofile # Reload zsh config
-RUBY_VERSION="3.2.2"
+RUBY_VERSION="3.4.12"
 rbenv install --skip-existing "$RUBY_VERSION"
 rbenv global "$RUBY_VERSION"
 
@@ -53,7 +53,7 @@ add_line 'export PYENV_ROOT="$HOME/.pyenv"' ~/.profile ~/.zprofile
 add_line 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' ~/.profile ~/.zprofile
 add_line 'eval "$(pyenv init -)"' ~/.profile ~/.zprofile
 source ~/.zprofile # Reload zsh config
-PYTHON_VERSION="3.11.5"
+PYTHON_VERSION="3.14" # pyenv installs the latest 3.14 release
 pyenv install --skip-existing "$PYTHON_VERSION"
 pyenv global "$PYTHON_VERSION"
 
@@ -69,7 +69,7 @@ if [ ! -d ~/.phpbrew ]; then
 fi
 add_line '[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc' ~/.profile ~/.zprofile
 source ~/.zprofile # Reload zsh config
-PHP_VERSION="8.1.23"
+PHP_VERSION="8.4.27"
 if [ ! -d ~/.phpbrew/php/"php-$PHP_VERSION" ]; then
     phpbrew install "$PHP_VERSION"
 fi

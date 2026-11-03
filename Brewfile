@@ -7,29 +7,30 @@ tap "hashicorp/tap"
 # Java
 brew "openjdk"
 
-# rbenv, ruby-build and the Ruby build dependencies
+# Version managers for Ruby, Python, Node.js and PHP, and Composer
 brew "rbenv"
 brew "ruby-build"
-brew "libyaml"
-
-# pyenv and the Python build dependencies
 brew "pyenv"
-brew "openssl"
+brew "fnm"
+brew "phpbrew"
+brew "composer"
+
+# What ruby-build, pyenv and phpbrew need to build Ruby, Python and PHP, from
+# ruby-build's and pyenv's wikis. tcl-tk replaces pyenv's tcl-tk@8, which
+# Homebrew deprecated; Python 3.14 supports Tk 9.
+brew "autoconf"
+brew "bzip2"
+brew "gmp"
+brew "libb2"
+brew "libyaml"
+brew "openssl@3"
+brew "pkgconf"
 brew "readline"
 brew "sqlite"
+brew "tcl-tk"
 brew "xz"
 brew "zlib"
-brew "tcl-tk"
-
-# fnm, for Node.js
-brew "fnm"
-
-# phpbrew, the PHP build dependencies, and Composer
-brew "phpbrew"
-brew "autoconf"
-brew "pkgconf"
-brew "bzip2"
-brew "composer"
+brew "zstd"
 
 # Starship and its font
 cask "font-fira-code-nerd-font"
