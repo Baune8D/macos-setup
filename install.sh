@@ -125,3 +125,5 @@ gem install ultrahook
 
 # Open the folder containing the NTFS for Mac installer, which has to be run by hand
 open /opt/homebrew/Caskroom/paragon-ntfs
+
+print -P "%F{green}All done! Restart your terminal, then finish the manual steps in the README.%f"
