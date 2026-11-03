@@ -109,6 +109,7 @@ mas "Windows App", id: 1295203466
 mas "WireGuard", id: 1451685025
 
 # VS Code extensions
+vscode "anthropic.claude-code"
 vscode "dbaeumer.vscode-eslint"
 vscode "editorconfig.editorconfig"
 vscode "esbenp.prettier-vscode"

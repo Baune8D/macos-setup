@@ -103,6 +103,12 @@ if ! dotnet tool list --global | grep -qi '^nuke\.globaltool '; then
     dotnet tool install Nuke.GlobalTool --global
 fi
 
+# Install Claude Code with its official installer. It keeps itself up to date.
+add_line 'export PATH="$HOME/.local/bin:$PATH"' ~/.profile ~/.zprofile
+if [ ! -x ~/.local/bin/claude ]; then
+    curl -fsSL https://claude.ai/install.sh | bash
+fi
+
 # Install Vagrant plugins
 vagrant plugin install vagrant-hostmanager
 vagrant plugin install vagrant-parallels
