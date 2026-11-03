@@ -37,13 +37,11 @@ PYTHON_VERSION="3.11.5"
 pyenv install $PYTHON_VERSION
 pyenv global $PYTHON_VERSION
 
-# Install zsh-nvm, nvm, Node.js LTS
-git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
-echo source ~/.zsh-nvm/zsh-nvm.plugin.zsh >> ~/.zprofile
-echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.profile
-echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.profile
+# Install Node.js LTS with fnm
+echo 'eval "$(fnm env --use-on-cd --shell zsh)"' >> ~/.zprofile
+echo 'eval "$(fnm env --use-on-cd --shell bash)"' >> ~/.profile
 source ~/.zprofile # Reload zsh config
-nvm install --lts
+fnm install --lts
 
 # Install PHP, Composer and Laravel
 phpbrew init

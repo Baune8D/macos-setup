@@ -21,6 +21,9 @@ brew "xz"
 brew "zlib"
 brew "tcl-tk"
 
+# fnm, for Node.js
+brew "fnm"
+
 # phpbrew, the PHP build dependencies, and Composer
 brew "phpbrew"
 brew "autoconf"
