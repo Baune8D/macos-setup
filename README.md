@@ -1,7 +1,7 @@
 # macOS setup
 
 [![CI](https://github.com/Baune8D/macos-setup/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Baune8D/macos-setup/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/github/license/Baune8D/macos-setup)](https://github.com/Baune8D/macos-setup/blob/main/LICENSE.txt)
+[![License: MIT](https://img.shields.io/github/license/Baune8D/macos-setup)](https://github.com/Baune8D/macos-setup/blob/main/LICENSE)
 
 My script for setting up a new Mac: Homebrew with the packages, apps and VS Code extensions in the [Brewfile](Brewfile), version managers for Ruby, Python and Node.js, PHP, a zsh setup with Starship, and Claude Code.
 
@@ -69,4 +69,4 @@ CI runs it on every push and every Monday.
 
 ## License
 
-[MIT](LICENSE.txt)
+[MIT](LICENSE)
