@@ -7,19 +7,17 @@ tap "hashicorp/tap"
 # Java
 brew "openjdk"
 
-# Version managers for Ruby, Python, Node.js and PHP, and Composer
+# Version managers for Ruby, Python and Node.js, and PHP and Composer
 brew "rbenv"
 brew "ruby-build"
 brew "pyenv"
 brew "fnm"
-brew "phpbrew"
+brew "php"
 brew "composer"
 
-# What ruby-build, pyenv and phpbrew need to build Ruby, Python and PHP, from
-# ruby-build's and pyenv's wikis. tcl-tk replaces pyenv's tcl-tk@8, which
+# What ruby-build and pyenv need to build Ruby and Python, from their wikis. tcl-tk replaces pyenv's tcl-tk@8, which
 # Homebrew deprecated; Python 3.14 supports Tk 9.
 brew "autoconf"
-brew "bzip2"
 brew "gmp"
 brew "libb2"
 brew "libyaml"

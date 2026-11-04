@@ -2,7 +2,7 @@
 
 The script that sets up a new Mac (Apple silicon) for its owner.
 
-- `install.sh`: a zsh script (`#!/bin/zsh`), so it can reload `~/.zprofile` and `~/.zshrc` after each step. It installs Rosetta and Homebrew, runs `brew bundle install` on the Brewfile next to it (found with `${0:a:h}`), then sets up what Homebrew doesn't: the OpenJDK link, the Ruby, Python, Node.js and PHP versions (rbenv, pyenv, fnm, phpbrew), the dotfile lines, NUKE, Claude Code, Vagrant plugins, Composer packages and gems.
+- `install.sh`: a zsh script (`#!/bin/zsh`), so it can reload `~/.zprofile` and `~/.zshrc` after each step. It installs Rosetta and Homebrew, runs `brew bundle install` on the Brewfile next to it (found with `${0:a:h}`), then sets up what Homebrew doesn't: the OpenJDK link, the Ruby, Python and Node.js versions (rbenv, pyenv, fnm), the dotfile lines, NUKE, Claude Code, Vagrant plugins, Composer packages and gems.
 - Dotfile lines go through `add_line`, which only appends a line that isn't there yet. Every other step skips what's already installed, so the script can be run again. Keep both true for new steps.
 - `Brewfile`: the formulae, casks, App Store apps (`mas`) and VS Code extensions, grouped by purpose. Use each package's current name (not an alias or old token) and give third-party tap entries `trusted: true`.
 - `check-brewfile.sh`: checks that every Brewfile entry can still be installed. Bash, read-only.
@@ -17,7 +17,7 @@ The script that sets up a new Mac (Apple silicon) for its owner.
 ## Dependencies
 
 - Before adding or replacing an entry, check it with `brew info --json=v2` (deprecated, disabled, renamed), the iTunes lookup API (`https://itunes.apple.com/lookup?id=<id>`) for App Store apps, or the Marketplace for VS Code extensions. Then run `./check-brewfile.sh`.
-- Ruby and PHP are pinned to a release in install.sh; Python is a minor version that pyenv resolves to its latest release (rbenv can't resolve prefixes). Use a supported series, and keep the build dependencies in the Brewfile in line with ruby-build's and pyenv's wikis.
+- PHP is Homebrew's `php` formula, so it follows Homebrew's latest release. Ruby is pinned to a release in install.sh; Python is a minor version that pyenv resolves to its latest release (rbenv can't resolve prefixes). Use a supported series, and keep the build dependencies in the Brewfile in line with ruby-build's and pyenv's wikis.
 - Dependabot updates the GitHub Actions weekly on Monday with a 7-day cooldown, in one grouped pull request.
 
 ## Testing

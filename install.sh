@@ -63,17 +63,7 @@ add_line 'eval "$(fnm env --use-on-cd --shell bash)"' ~/.profile
 source ~/.zprofile # Reload zsh config
 fnm install --lts
 
-# Install PHP, Composer and Laravel
-if [ ! -d ~/.phpbrew ]; then
-    phpbrew init
-fi
-add_line '[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc' ~/.profile ~/.zprofile
-source ~/.zprofile # Reload zsh config
-PHP_VERSION="8.4.27"
-if [ ! -d ~/.phpbrew/php/"php-$PHP_VERSION" ]; then
-    phpbrew install "$PHP_VERSION"
-fi
-phpbrew switch "php-$PHP_VERSION"
+# Set up Composer and Laravel. PHP is Homebrew's latest, from the Brewfile.
 add_line 'export PATH=$PATH:$HOME/.composer/vendor/bin' ~/.zprofile
 source ~/.zprofile # Reload zsh config
 add_line 'export COMPOSER_MEMORY_LIMIT=-1' ~/.zshrc

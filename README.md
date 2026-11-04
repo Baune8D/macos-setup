@@ -3,7 +3,7 @@
 [![CI](https://github.com/Baune8D/macos-setup/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Baune8D/macos-setup/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/github/license/Baune8D/macos-setup)](https://github.com/Baune8D/macos-setup/blob/main/LICENSE.txt)
 
-My script for setting up a new Mac: Homebrew with the packages, apps and VS Code extensions in the [Brewfile](Brewfile), version managers for Ruby, Python, Node.js and PHP, a zsh setup with Starship, and Claude Code.
+My script for setting up a new Mac: Homebrew with the packages, apps and VS Code extensions in the [Brewfile](Brewfile), version managers for Ruby, Python and Node.js, PHP, a zsh setup with Starship, and Claude Code.
 
 ## Requirements
 
@@ -33,15 +33,16 @@ In order:
 1. Installs Rosetta 2 and Homebrew, and turns Homebrew's analytics off.
 2. Installs everything in the [Brewfile](Brewfile) with `brew bundle install`:
    - **Command-line tools:** Git, eza, kubecolor, mas, Neovim, NuGet, Packer, tmux, zsh, Starship and the zsh plugins, and the .NET SDK.
-   - **Version managers:** rbenv, pyenv, fnm and phpbrew, with what they need to build Ruby, Python and PHP, and Composer.
+   - **Version managers:** rbenv, pyenv and fnm, with what rbenv and pyenv need to build Ruby and Python.
+   - **PHP:** the latest PHP and Composer.
    - **Apps:** balenaEtcher, Bluesnooze, Charles, Discord, Docker Desktop, Firefox, ForkLift, the Google Cloud CLI, GitHub Desktop, Google Chrome, Google Drive, ImageOptim, iTerm2, JetBrains Toolbox, LibreOffice, MAMP, Mono, MySQL Workbench, ngrok, Parallels Desktop, Plex, Postman, PowerShell, Raspberry Pi Imager, RealVNC Connect Viewer, SABnzbd, SD Formatter, Spotify, Steam, Textual, Vagrant and the Vagrant VMware Utility, VirtualBox, VS Code, VLC, Warp, Zoom and TeamViewer, and the Fira Code Nerd Font.
    - **Drivers:** Logi Options+, and extFS and NTFS for Mac by Paragon.
    - **App Store apps:** Slack, Medis, WhatsApp, Windows App and WireGuard.
    - **VS Code extensions:** Claude Code, C#, Container Tools, Dev Containers, EditorConfig, ESLint, PHP Debug, PowerShell, Prettier, SQL Server (mssql), Stylelint and Vue (Official).
 3. Links Homebrew's OpenJDK so that the system's `java` finds it.
-4. Installs Ruby 3.4.12 with rbenv, the latest Python 3.14 with pyenv, the latest Node.js LTS with fnm and PHP 8.4.27 with phpbrew, and makes them the defaults.
+4. Installs Ruby 3.4.12 with rbenv, the latest Python 3.14 with pyenv, and the latest Node.js LTS with fnm, and makes them the defaults.
 5. Sets up the shell:
-   - `~/.zprofile` (and `~/.profile`, for bash): Homebrew, rbenv, pyenv, fnm and phpbrew, and the Composer, .NET tools and Claude Code folders on `PATH`.
+   - `~/.zprofile` (and `~/.profile`, for bash): Homebrew, rbenv, pyenv and fnm, and the Composer, .NET tools and Claude Code folders on `PATH`.
    - `~/.zshrc`: the Starship prompt, zsh-autosuggestions, zsh-syntax-highlighting, `ls` as eza, `kubectl` as kubecolor, Neovim as `EDITOR`, a `sail` alias for Laravel Sail and `COMPOSER_MEMORY_LIMIT=-1`.
 6. Installs NUKE (`dotnet tool install --global Nuke.GlobalTool`) and Claude Code, with its [official installer](https://code.claude.com/docs/en/setup). Claude Code keeps itself up to date.
 7. Installs the Vagrant plugins vagrant-hostmanager, vagrant-parallels, vagrant-reload and vagrant-vmware-desktop, the Laravel installer with Composer, and the bundler, jekyll and ultrahook gems.
