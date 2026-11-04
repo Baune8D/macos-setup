@@ -32,10 +32,10 @@ In order:
 
 1. Installs Rosetta 2 and Homebrew, and turns Homebrew's analytics off.
 2. Installs everything in the [Brewfile](Brewfile) with `brew bundle install`:
-   - **Command-line tools:** Git, eza, kubecolor, mas, Neovim, NuGet, Packer, tmux, zsh, Starship and the zsh plugins, and the .NET SDK.
+   - **Command-line tools:** Git, eza, kubecolor, mas, Neovim, NuGet, Packer, PowerShell, tmux, zsh, Starship and the zsh plugins, and the .NET SDK.
    - **Version managers:** rbenv, pyenv and fnm, with what rbenv and pyenv need to build Ruby and Python.
    - **PHP:** the latest PHP and Composer.
-   - **Apps:** balenaEtcher, Bluesnooze, Charles, Discord, Docker Desktop, Firefox, ForkLift, the Google Cloud CLI, GitHub Desktop, Google Chrome, Google Drive, ImageOptim, iTerm2, JetBrains Toolbox, LibreOffice, MAMP, Mono, MySQL Workbench, ngrok, Parallels Desktop, Plex, Postman, PowerShell, Raspberry Pi Imager, RealVNC Connect Viewer, SABnzbd, SD Formatter, Spotify, Steam, Textual, Vagrant and the Vagrant VMware Utility, VirtualBox, VS Code, VLC, Warp, Zoom and TeamViewer, and the Fira Code Nerd Font.
+   - **Apps:** balenaEtcher, Bluesnooze, Charles, Discord, Docker Desktop, Firefox, ForkLift, the Google Cloud CLI, GitHub Desktop, Google Chrome, Google Drive, ImageOptim, iTerm2, JetBrains Toolbox, LibreOffice, MAMP, Mono, MySQL Workbench, ngrok, Parallels Desktop, Plex, Postman, Raspberry Pi Imager, RealVNC Connect Viewer, SABnzbd, SD Formatter, Spotify, Steam, Textual, Vagrant and the Vagrant VMware Utility, VirtualBox, VS Code, VLC, Warp, Zoom and TeamViewer, and the Fira Code Nerd Font.
    - **Drivers:** Logi Options+, and extFS and NTFS for Mac by Paragon.
    - **App Store apps:** Slack, Medis, WhatsApp, Windows App and WireGuard.
    - **VS Code extensions:** Claude Code, C#, Container Tools, Dev Containers, EditorConfig, ESLint, PHP Debug, PowerShell, Prettier, SQL Server (mssql), Stylelint and Vue (Official).
